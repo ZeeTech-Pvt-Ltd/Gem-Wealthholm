@@ -1,0 +1,35 @@
+/* ------------------------------------------------------------------
+   Gem Wealthholm — brand tokens
+   Light-editorial system: Swiss grid, hairlines, oversized display
+   type, lime marker highlights.
+------------------------------------------------------------------- */
+:root {
+  /* Brand colors */
+  --ink: #0d121b;            /* navy — headlines, primary buttons */
+  --ink-deep: #05070c;
+  --lime: #d6fa03;           /* signature lime — marks, accents, CTAs */
+  --lime-dark: #b8dd02;
+  --mint: #8df197;
+  --emerald: #004938;        /* deep emerald — contrast bands */
+  --emerald-light: #0c6b54;
+
+  /* Surfaces & text */
+  --white: #ffffff;
+  --paper: #fafaf8;          /* warm off-white section base */
+  --paper-deep: #f2f2ee;
+  --text: #212529;
+  --muted: #6b7280;
+  --faint: #9aa1ab;
+  --line: #e8e8e2;           /* hairline */
+  --line-strong: #d5d5cc;
+
+  /* Type */
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+
+  /* Shape & layout */
+  --radius: 4px;             /* sharp editorial corners */
+  --container: 1200px;
+  --section: 110px;          /* generous vertical rhythm */
+}
