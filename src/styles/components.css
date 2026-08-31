@@ -257,6 +257,11 @@
   to { transform: translateX(-50%); }
 }
 
+.marquee-band__track,
+.ticker__track {
+  will-change: transform;
+}
+
 .ticker__item {
   display: inline-flex;
   align-items: center;

@@ -76,6 +76,13 @@ textarea {
   position: relative;
 }
 
+/* Performance: skip rendering of offscreen page sections until
+   they approach the viewport (hero stays eager for LCP). */
+main > section:not(.hero):not(.page-hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
 .section--paper {
   background: var(--paper);
 }

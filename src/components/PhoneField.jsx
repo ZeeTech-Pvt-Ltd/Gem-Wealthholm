@@ -21,35 +21,59 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
     let destroyed = false
     let cancelled = false
     let itiInstance = null
+    let started = false
+    let observer = null
 
-    import('intl-tel-input').then((mod) => {
-      if (destroyed) return
+    const init = () => {
+      if (started || destroyed) return
+      started = true
+      observer?.disconnect()
 
-      const intlTelInput = mod.default || mod
-      itiInstance = intlTelInput(input, {
-        separateDialCode: true,
-        preferredCountries: ['gb', 'us'],
-        initialCountry: 'gb',
-        autoPlaceholder: 'off',
-        utilsScript: utilsUrl,
+      import('intl-tel-input').then((mod) => {
+        if (destroyed) return
+
+        const intlTelInput = mod.default || mod
+        itiInstance = intlTelInput(input, {
+          separateDialCode: true,
+          preferredCountries: ['gb', 'us'],
+          initialCountry: 'gb',
+          autoPlaceholder: 'off',
+          utilsScript: utilsUrl,
+        })
+        if (apiRef) apiRef.current = itiInstance
+
+        // Geolocate the visitor and pre-select their dial code
+        fetch('https://ipwho.is/', { signal: AbortSignal.timeout(5000) })
+          .then((r) => (r.ok ? r.json() : null))
+          .then((data) => {
+            const code = data?.country_code?.toLowerCase()
+            if (!cancelled && code) itiInstance?.setCountry(code)
+          })
+          .catch(() => {
+            /* keep the default country */
+          })
       })
-      if (apiRef) apiRef.current = itiInstance
+    }
 
-      // Geolocate the visitor and pre-select their dial code
-      fetch('https://ipwho.is/', { signal: AbortSignal.timeout(5000) })
-        .then((r) => (r.ok ? r.json() : null))
-        .then((data) => {
-          const code = data?.country_code?.toLowerCase()
-          if (!cancelled && code) itiInstance?.setCountry(code)
-        })
-        .catch(() => {
-          /* keep the default country */
-        })
-    })
+    // Initialize right away when the input is in/near the viewport;
+    // otherwise wait until the user scrolls close (saves work for
+    // below-the-fold forms, e.g. the CTA banner).
+    if ('IntersectionObserver' in window) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) init()
+        },
+        { rootMargin: '600px 0px' },
+      )
+      observer.observe(input)
+    } else {
+      init()
+    }
 
     return () => {
       destroyed = true
       cancelled = true
+      observer?.disconnect()
       if (apiRef?.current === itiInstance) apiRef.current = null
       itiInstance?.destroy()
     }
