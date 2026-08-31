@@ -3,6 +3,25 @@
    Hairlines, mono labels, oversized display type, flat cards
 ------------------------------------------------------------------- */
 
+/* Route-loader fallback -------------------------------------------------- */
+
+.page-loader {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-loader::after {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--lime);
+  border: 2px solid var(--ink);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
 /* Header ------------------------------------------------------------ */
 
 .header {

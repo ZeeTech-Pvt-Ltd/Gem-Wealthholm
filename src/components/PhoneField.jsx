@@ -1,16 +1,15 @@
 import { useEffect, useRef } from 'react'
-import intlTelInput from 'intl-tel-input'
 import 'intl-tel-input/build/css/intlTelInput.css'
 import utilsUrl from 'intl-tel-input/build/js/utils.js?url'
 
 /**
  * Phone input powered by intl-tel-input 17.0.8 — the exact widget the
  * reference sites use (flag + separate dial code, preferred countries,
- * validation utils). Visitor country is geo-detected via ipwho.is and
- * the dial code pre-selected. (The reference sites call ipapi.co, but
- * that API sends no CORS headers and rejects browser requests from
- * every non-allowlisted origin — ipwho.is does the same job with
- * CORS enabled.)
+ * validation utils). The library (with all country data) is loaded
+ * dynamically so it stays out of the initial bundle. Visitor country
+ * is geo-detected via ipwho.is and the dial code pre-selected. (The
+ * reference sites call ipapi.co, but that API sends no CORS headers
+ * and rejects browser requests from every non-allowlisted origin.)
  */
 export default function PhoneField({ id, name, required, placeholder, autoComplete, apiRef, invalid = false, onInput }) {
   const inputRef = useRef(null)
@@ -19,31 +18,40 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
     const input = inputRef.current
     if (!input) return
 
-    const iti = intlTelInput(input, {
-      separateDialCode: true,
-      preferredCountries: ['gb', 'us'],
-      initialCountry: 'gb',
-      autoPlaceholder: 'off',
-      utilsScript: utilsUrl,
-    })
-    if (apiRef) apiRef.current = iti
-
-    // Geolocate the visitor and pre-select their dial code
+    let destroyed = false
     let cancelled = false
-    fetch('https://ipwho.is/', { signal: AbortSignal.timeout(5000) })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((data) => {
-        const code = data?.country_code?.toLowerCase()
-        if (!cancelled && code) iti.setCountry(code)
+    let itiInstance = null
+
+    import('intl-tel-input').then((mod) => {
+      if (destroyed) return
+
+      const intlTelInput = mod.default || mod
+      itiInstance = intlTelInput(input, {
+        separateDialCode: true,
+        preferredCountries: ['gb', 'us'],
+        initialCountry: 'gb',
+        autoPlaceholder: 'off',
+        utilsScript: utilsUrl,
       })
-      .catch(() => {
-        /* keep the default country */
-      })
+      if (apiRef) apiRef.current = itiInstance
+
+      // Geolocate the visitor and pre-select their dial code
+      fetch('https://ipwho.is/', { signal: AbortSignal.timeout(5000) })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((data) => {
+          const code = data?.country_code?.toLowerCase()
+          if (!cancelled && code) itiInstance?.setCountry(code)
+        })
+        .catch(() => {
+          /* keep the default country */
+        })
+    })
 
     return () => {
+      destroyed = true
       cancelled = true
-      if (apiRef?.current === iti) apiRef.current = null
-      iti.destroy()
+      if (apiRef?.current === itiInstance) apiRef.current = null
+      itiInstance?.destroy()
     }
   }, [])
 
