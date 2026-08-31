@@ -17,37 +17,216 @@
       as="font"
       type="font/woff2"
       crossorigin
-      href="https://fonts.gstatic.com/s/spacegrotesk/v22/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj4PVnsrPMBTTA.woff2"
+      href="https://fonts.gstatic.com/s/spacegrotesk/v22/V8mDoQDjQSkFtoMM3T6r8E7mPbF4Cw.woff2"
     />
     <link
       rel="preload"
       as="font"
       type="font/woff2"
       crossorigin
-      href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2"
+      href="https://fonts.gstatic.com/s/inter/v20/UcCo3FwrK3iLTcviYwY.woff2"
     />
     <!-- Non-blocking font loading: paint with fallback, swap when ready -->
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300..700&family=Space+Mono:wght@400;700&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300..700&family=Space+Mono:wght@400;700&display=swap"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=Space+Mono:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300..700&family=Space+Mono:wght@400;700&display=swap"
       />
     </noscript>
+
+    <!-- Critical inline CSS for the pre-React splash shell -->
+    <style>
+      :root {
+        --sp-ink: #0d121b;
+        --sp-lime: #d6fa03;
+        --sp-muted: #6b7280;
+        --sp-line: #e8e8e2;
+        --sp-paper: #fafaf8;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: Inter, 'Segoe UI', system-ui, sans-serif;
+        background: #fff;
+        color: var(--sp-ink);
+        -webkit-font-smoothing: antialiased;
+      }
+      #root:empty + #splash { display: block; }
+      #splash { display: none; }
+      .sp-header {
+        background: #fff;
+        border-bottom: 1px solid var(--sp-line);
+      }
+      .sp-header__inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 18px 28px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .sp-gem {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 auto;
+        display: inline-block;
+      }
+      .sp-logo {
+        font-family: 'Space Grotesk', Inter, sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        letter-spacing: -0.02em;
+      }
+      .sp-logo em {
+        font-style: normal;
+        background: var(--sp-lime);
+        padding: 0 0.12em;
+      }
+      .sp-hero {
+        background: var(--sp-paper);
+        border-bottom: 1px solid var(--sp-line);
+        padding: 56px 0 72px;
+      }
+      .sp-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 28px;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 48px;
+        align-items: center;
+      }
+      .sp-eyebrow {
+        font-family: 'Space Mono', 'Courier New', monospace;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--sp-muted);
+        margin-bottom: 20px;
+      }
+      .sp-eyebrow::before {
+        content: '';
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: var(--sp-lime);
+        border-radius: 2px;
+        margin-right: 10px;
+        vertical-align: -1px;
+      }
+      .sp-title {
+        font-family: 'Space Grotesk', Inter, sans-serif;
+        font-size: clamp(38px, 7vw, 78px);
+        font-weight: 700;
+        line-height: 1.02;
+        letter-spacing: -0.04em;
+        margin-bottom: 22px;
+      }
+      .sp-title mark {
+        background: var(--sp-lime);
+        color: var(--sp-ink);
+        padding: 0 0.1em;
+      }
+      .sp-sub {
+        font-size: 17px;
+        line-height: 1.65;
+        color: var(--sp-muted);
+        max-width: 480px;
+        margin-bottom: 28px;
+      }
+      .sp-btn {
+        display: inline-block;
+        background: var(--sp-ink);
+        color: #fff;
+        font-weight: 600;
+        font-size: 15px;
+        padding: 14px 28px;
+        border-radius: 4px;
+        text-decoration: none;
+      }
+      .sp-card {
+        background: #fff;
+        border: 1px solid var(--sp-line);
+        border-radius: 4px;
+        padding: 32px;
+        box-shadow: 10px 10px 0 #f2f2ee;
+      }
+      .sp-card__title {
+        font-family: 'Space Grotesk', Inter, sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      .sp-row {
+        height: 44px;
+        border: 1px solid var(--sp-line);
+        border-radius: 4px;
+        margin-bottom: 14px;
+        background: #fafafa;
+      }
+      .sp-row--btn {
+        height: 48px;
+        background: var(--sp-lime);
+        border: 0;
+      }
+      @media (max-width: 991px) {
+        .sp-container { grid-template-columns: 1fr; gap: 36px; }
+        .sp-hero { padding: 44px 0 60px; }
+      }
+    </style>
+
     <title>Gem Wealthholm — Official Website</title>
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Static splash shell: paints instantly, removed when React mounts -->
+    <div id="splash" aria-hidden="true">
+      <header class="sp-header">
+        <div class="sp-header__inner">
+          <svg class="sp-gem" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 3 L27 13 L16 29 L5 13 Z" fill="#d6fa03" />
+            <path d="M16 3 L27 13 L16 16 Z" fill="rgba(0,0,0,0.22)" />
+            <path d="M5 13 L16 16 L16 29 Z" fill="rgba(0,73,56,0.35)" />
+            <path d="M16 3 L5 13 L16 16 Z" fill="rgba(255,255,255,0.3)" />
+          </svg>
+          <span class="sp-logo">Gem <em>Wealthholm</em></span>
+        </div>
+      </header>
+      <section class="sp-hero">
+        <div class="sp-container">
+          <div>
+            <p class="sp-eyebrow">Gem Wealthholm — AI market intelligence</p>
+            <h1 class="sp-title">See the market with <mark>clarity</mark></h1>
+            <p class="sp-sub">
+              An AI engine that scans markets around the clock, turns dense
+              data into clear signals, and helps you act with more confidence.
+            </p>
+            <span class="sp-btn">Open an account</span>
+          </div>
+          <div class="sp-card">
+            <div class="sp-card__title">Join now</div>
+            <div class="sp-row"></div>
+            <div class="sp-row"></div>
+            <div class="sp-row"></div>
+            <div class="sp-row"></div>
+            <div class="sp-row sp-row--btn"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

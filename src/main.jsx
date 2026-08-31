@@ -3,9 +3,10 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import App from './App'
 
-// Route-level code splitting: each page is its own chunk,
-// loaded on demand to keep the initial bundle small.
-const Home = lazy(() => import('./pages/Home'))
+// Route-level code splitting: non-home pages are their own chunks.
+// The homepage is imported eagerly — it is the landing page, so it
+// must not wait on an extra network round-trip before rendering.
+import Home from './pages/Home'
 const About = lazy(() => import('./pages/About'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Faq = lazy(() => import('./pages/Faq'))
