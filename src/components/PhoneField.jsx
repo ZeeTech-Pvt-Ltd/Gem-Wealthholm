@@ -29,7 +29,9 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
       started = true
       observer?.disconnect()
 
-      import('intl-tel-input').then((mod) => {
+      // Load the widget during an idle period so it never competes
+      // with rendering (falls back to a short delay if unsupported).
+      const load = () => import('intl-tel-input').then((mod) => {
         if (destroyed) return
 
         const intlTelInput = mod.default || mod
@@ -53,6 +55,12 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
             /* keep the default country */
           })
       })
+
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(() => load(), { timeout: 1500 })
+      } else {
+        setTimeout(load, 800)
+      }
     }
 
     // Initialize right away when the input is in/near the viewport;
