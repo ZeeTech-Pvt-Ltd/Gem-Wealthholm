@@ -12,7 +12,7 @@ import utilsUrl from 'intl-tel-input/build/js/utils.js?url'
  * every non-allowlisted origin — ipwho.is does the same job with
  * CORS enabled.)
  */
-export default function PhoneField({ id, name, required, placeholder, autoComplete }) {
+export default function PhoneField({ id, name, required, placeholder, autoComplete, apiRef, invalid = false, onInput }) {
   const inputRef = useRef(null)
 
   useEffect(() => {
@@ -26,6 +26,7 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
       autoPlaceholder: 'off',
       utilsScript: utilsUrl,
     })
+    if (apiRef) apiRef.current = iti
 
     // Geolocate the visitor and pre-select their dial code
     let cancelled = false
@@ -41,6 +42,7 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
 
     return () => {
       cancelled = true
+      if (apiRef?.current === iti) apiRef.current = null
       iti.destroy()
     }
   }, [])
@@ -48,13 +50,14 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
   return (
     <input
       ref={inputRef}
-      className="field__input"
+      className={`field__input${invalid ? ' field__input--error' : ''}`}
       id={id}
       name={name}
       type="tel"
       required={required}
       autoComplete={autoComplete}
       placeholder={placeholder}
+      onInput={onInput}
     />
   )
 }

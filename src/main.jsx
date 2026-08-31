@@ -12,6 +12,7 @@ import Privacy from './pages/Privacy'
 import RiskDisclosure from './pages/RiskDisclosure'
 import Cookies from './pages/Cookies'
 import NotFound from './pages/NotFound'
+import ThankYou from './pages/ThankYou'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -27,6 +28,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/privacy-policy" element={<Privacy />} />
           <Route path="/risk-disclosure" element={<RiskDisclosure />} />
           <Route path="/cookie-policy" element={<Cookies />} />
+          <Route path="/thank-you" element={<ThankYou />} />
 
           {/* Redirects for the old slugs */}
           <Route path="/about" element={<Navigate to="/about-us" replace />} />
