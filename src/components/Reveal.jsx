@@ -2,9 +2,36 @@ import { useEffect, useRef } from 'react'
 
 /**
  * Fades content up when it scrolls into view (or is already past it).
- * Uses a throttled scroll check so fast scrolls and anchor jumps are
- * handled deterministically. Respects prefers-reduced-motion via CSS.
+ * All instances share ONE scroll listener + rAF loop so scrolling
+ * stays cheap on mobile. Respects prefers-reduced-motion via CSS.
  */
+
+const pending = new Set()
+let raf = 0
+let listening = false
+
+function stop() {
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('resize', onScroll)
+  listening = false
+}
+
+function flush() {
+  raf = 0
+  for (const el of pending) {
+    const rect = el.getBoundingClientRect()
+    if (rect.top < window.innerHeight * 0.94) {
+      pending.delete(el)
+      el.classList.add('is-visible')
+    }
+  }
+  if (pending.size === 0) stop()
+}
+
+function onScroll() {
+  if (!raf) raf = requestAnimationFrame(flush)
+}
+
 export default function Reveal({ children, delay = 0, as: Tag = 'div', className = '', ...rest }) {
   const ref = useRef(null)
 
@@ -12,32 +39,18 @@ export default function Reveal({ children, delay = 0, as: Tag = 'div', className
     const el = ref.current
     if (!el) return
 
-    let raf = 0
-
-    const revealIfVisible = () => {
-      const rect = el.getBoundingClientRect()
-      if (rect.top < window.innerHeight * 0.94) {
-        el.classList.add('is-visible')
-        cleanup()
-      }
+    pending.add(el)
+    if (!listening) {
+      window.addEventListener('scroll', onScroll, { passive: true })
+      window.addEventListener('resize', onScroll)
+      listening = true
     }
+    flush() // immediate check for elements already in view
 
-    const onScroll = () => {
-      cancelAnimationFrame(raf)
-      raf = requestAnimationFrame(revealIfVisible)
+    return () => {
+      pending.delete(el)
+      if (pending.size === 0 && listening) stop()
     }
-
-    const cleanup = () => {
-      cancelAnimationFrame(raf)
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
-    }
-
-    revealIfVisible()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
-
-    return cleanup
   }, [])
 
   return (
