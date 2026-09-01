@@ -39,7 +39,9 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
           separateDialCode: true,
           preferredCountries: ['gb', 'us'],
           initialCountry: 'gb',
-          autoPlaceholder: 'off',
+          // Placeholder follows the selected country's mobile format
+          autoPlaceholder: 'aggressive',
+          placeholderNumberType: 'MOBILE',
           utilsScript: utilsUrl,
         })
         if (apiRef) apiRef.current = itiInstance
