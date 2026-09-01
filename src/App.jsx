@@ -111,6 +111,15 @@ function Seo() {
         document.head.appendChild(meta)
       }
       meta.content = seo.description
+
+      // Post-submit page should not be indexed
+      let robots = document.querySelector('meta[name="robots"]')
+      if (!robots) {
+        robots = document.createElement('meta')
+        robots.name = 'robots'
+        document.head.appendChild(robots)
+      }
+      robots.content = pathname === '/thank-you' ? 'noindex, nofollow' : 'index, follow'
     }
   }, [pathname])
 
