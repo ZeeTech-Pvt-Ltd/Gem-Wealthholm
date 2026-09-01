@@ -257,7 +257,6 @@
   to { transform: translateX(-50%); }
 }
 
-.marquee-band__track,
 .ticker__track {
   will-change: transform;
 }
@@ -271,7 +270,6 @@
     -webkit-backdrop-filter: none;
   }
 
-  .marquee-band__track,
   .ticker__track {
     will-change: auto;
   }
@@ -302,66 +300,6 @@
 
 .ticker__change--up { color: var(--emerald); }
 .ticker__change--down { color: #c0392b; }
-
-/* Tilted marquee band ------------------------------------------------- */
-
-.marquee-band {
-  position: relative;
-  z-index: 5;
-  margin: -28px 0 0;
-  transform: rotate(-1.4deg) scale(1.03);
-  background: var(--lime);
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
-  overflow: hidden;
-}
-
-.marquee-band__track {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  width: max-content;
-  padding: 16px 0;
-  animation: marquee 30s linear infinite;
-}
-
-.marquee-band__item {
-  display: inline-flex;
-  align-items: center;
-  gap: 28px;
-  padding: 0 28px;
-  font-family: var(--font-mono);
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink);
-  white-space: nowrap;
-}
-
-.marquee-band__item::after {
-  content: '◆';
-  font-size: 11px;
-  margin-left: 28px;
-}
-
-.marquee-band--ink {
-  background: var(--ink);
-  border-color: var(--ink);
-  margin: -28px 0 0;
-  transform: rotate(-1.4deg) scale(1.03);
-}
-
-.marquee-band--ink .marquee-band__item {
-  color: var(--lime);
-}
-
-@media (max-width: 767px) {
-  .marquee-band__item {
-    font-size: 12px;
-    gap: 18px;
-  }
-}
 
 /* Hero ------------------------------------------------------------------ */
 

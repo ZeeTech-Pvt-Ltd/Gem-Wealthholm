@@ -5,7 +5,6 @@ import Accordion from '../components/Accordion'
 import IntelligenceGrid from '../components/IntelligenceGrid'
 import Testimonials from '../components/Testimonials'
 import CtaSection from '../components/CtaSection'
-import MarqueeBand from '../components/MarqueeBand'
 import ActivityTicker from '../components/ActivityTicker'
 import Reveal from '../components/Reveal'
 import CountUp from '../components/CountUp'
@@ -66,16 +65,8 @@ export default function Home() {
         </div>
       </section>
 
-      <MarqueeBand
-        items={[
-          'Real-time signals',
-          'AI market insights',
-          'Copy trading',
-          '24/7 monitoring',
-          'Secure channels',
-        ]}
-        ariaLabel="Platform capabilities"
-      />
+      {/* Live market ticker — right below the hero */}
+      <ActivityTicker />
 
       {/* 01 — Engine */}
       <FeatureSection
@@ -97,7 +88,7 @@ export default function Home() {
           'Copy trading with proven approaches',
         ]}
         image="/images/feature-engine.webp"
-        imageAlt="Gem Wealthholm capital growth"
+        imageAlt="Gem Wealthholm AI engine dashboard showing live market analysis and trading signals"
         cta={{ to: '/about-us', label: 'Learn more about us' }}
       />
 
@@ -240,13 +231,10 @@ export default function Home() {
           'Adaptive models, refreshed continuously',
         ]}
         image="/images/feature-analytics.webp"
-        imageAlt="Gem Wealthholm digital investment analytics"
+        imageAlt="Gem Wealthholm digital investment analytics and market performance charts"
         flip
         cta={{ to: '/faqs', label: 'Read the FAQ' }}
       />
-
-      {/* Live market ticker — leads into the markets section */}
-      <ActivityTicker />
 
       {/* 06 — Markets */}
       <section className="section section--rule">
