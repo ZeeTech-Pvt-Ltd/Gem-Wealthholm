@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { faqItems } from './data/faq'
+import { getGuide } from './data/guides'
 import './styles/variables.css'
 import './styles/base.css'
 import './styles/components.css'
@@ -66,27 +67,32 @@ const SEO_ROUTES = {
   '/terms-of-use': {
     title: 'Gem Wealthholm — Terms of Use & Platform Rules',
     description:
-      'The terms of use that govern your access to the Gem Wealthholm platform and services.',
+      'The terms of use that govern your access to the Gem Wealthholm platform: accounts, deposits, withdrawals, acceptable use and liability.',
   },
   '/privacy-policy': {
     title: 'Gem Wealthholm — Privacy Policy & Data Protection',
     description:
-      'How Gem Wealthholm collects, uses and protects your personal information across the platform.',
+      'How Gem Wealthholm collects, uses, shares and protects your personal information, and the privacy rights available to you.',
   },
   '/risk-disclosure': {
     title: 'Gem Wealthholm — Risk Disclosure & Trading Risks',
     description:
-      'The risks you should understand before using the Gem Wealthholm platform, including market volatility and the limits of AI tools.',
+      'The trading risks you should understand before using Gem Wealthholm: market volatility, limits of AI tools, liquidity and technology risks.',
   },
   '/cookie-policy': {
     title: 'Gem Wealthholm — Cookie Policy & Tracking Technologies',
     description:
-      'How Gem Wealthholm uses cookies and similar technologies, and how you can manage them.',
+      'How Gem Wealthholm uses cookies and similar technologies across the platform, and how you can manage or disable them.',
   },
   '/thank-you': {
     title: 'Thank You — Gem Wealthholm',
     description:
       'Your Gem Wealthholm request has been received. Our team will be in touch with you shortly.',
+  },
+  '/guides': {
+    title: 'Gem Wealthholm Guides — Reviews & How-To Articles',
+    description:
+      'Practical Gem Wealthholm guides: platform reviews, account access, getting started, and how deposits and withdrawals work.',
   },
 }
 
@@ -95,8 +101,11 @@ function Seo() {
   const lastPathRef = useRef(null)
 
   useEffect(() => {
+    const guide = pathname.startsWith('/guides/') ? getGuide(pathname.replace('/guides/', '')) : null
     const seo =
-      SEO_ROUTES[pathname] ||
+      guide
+        ? { title: guide.seoTitle, description: guide.seoDescription }
+        : SEO_ROUTES[pathname] ||
       (pathname.startsWith('/404')
         ? null
         : {

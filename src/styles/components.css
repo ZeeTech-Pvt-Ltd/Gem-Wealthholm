@@ -1443,6 +1443,74 @@
   color: var(--ink);
 }
 
+.contact-card__link {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--lime);
+  text-underline-offset: 3px;
+}
+
+/* Guides ----------------------------------------------------------------------------------------------- */
+
+.guides-list {
+  border-top: 2px solid var(--ink);
+}
+
+.guides-list__item {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 26px 4px;
+  border-bottom: 1px solid var(--line);
+  transition: background-color 0.2s ease;
+}
+
+.guides-list__item:hover {
+  background: var(--paper);
+}
+
+.guides-list__num {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--faint);
+  flex: 0 0 auto;
+}
+
+.guides-list__body {
+  flex: 1 0 auto;
+  min-width: 0;
+}
+
+.guides-list__title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.guides-list__meta {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--faint);
+}
+
+.guides-list__item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--ink);
+  flex: 0 0 auto;
+}
+
+.guide-next {
+  margin-top: 28px;
+}
+
 /* Legal documents ------------------------------------------------------------------------------------- */
 
 .legal-doc {
@@ -1536,6 +1604,44 @@
 }
 
 .login-card__sub a {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--lime);
+  text-underline-offset: 3px;
+}
+
+.login-perks {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 10px;
+}
+
+.login-perks li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.login-perks svg {
+  width: 17px;
+  height: 17px;
+  color: var(--emerald);
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.login-perks__more {
+  margin-top: 16px;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.login-perks__more a {
   color: var(--ink);
   font-weight: 700;
   text-decoration: underline;

@@ -31,6 +31,36 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://gemwealth-holm.com/guides</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gemwealth-holm.com/guides/gem-wealthholm-review</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gemwealth-holm.com/guides/gem-wealthholm-login</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gemwealth-holm.com/guides/gem-wealthholm-get-started</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gemwealth-holm.com/guides/gem-wealthholm-deposits-withdrawals</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://gemwealth-holm.com/terms-of-use</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>yearly</changefreq>

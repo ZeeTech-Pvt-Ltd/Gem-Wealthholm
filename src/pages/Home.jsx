@@ -27,7 +27,7 @@ export default function Home() {
             <div className="hero__main">
               <p className="eyebrow">Gem Wealthholm — AI market intelligence</p>
               <h1 className="hero__title">
-                See the market with <mark>clarity</mark>
+                Gem Wealthholm — see the market with <mark>clarity</mark>
               </h1>
               <p className="hero__subtitle">
                 An AI engine that scans markets around the clock, turns dense

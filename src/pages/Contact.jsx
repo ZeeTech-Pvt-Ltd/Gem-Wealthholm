@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import RegistrationForm from '../components/RegistrationForm'
 import Reveal from '../components/Reveal'
 import { MailIcon, PinIcon, ClockIcon } from '../components/Icons'
@@ -44,6 +45,16 @@ export default function Contact() {
           <div className="contact__grid">
             <Reveal>
               <p className="eyebrow">01 — Direct line</p>
+              <p className="quote">
+                Before you write, a quick tip: the most common questions about
+                the Gem Wealthholm platform — accounts, security, deposits and
+                withdrawals — are already answered in our{' '}
+                <Link to="/faqs" className="contact-card__link">
+                  FAQ
+                </Link>
+                . If you still need help, our team replies within one business
+                day.
+              </p>
               {contactCards.map((card) => {
                 const Icon = card.icon
                 return (

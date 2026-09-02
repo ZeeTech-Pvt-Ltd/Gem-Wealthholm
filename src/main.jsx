@@ -17,6 +17,8 @@ const RiskDisclosure = lazy(() => import('./pages/RiskDisclosure'))
 const Cookies = lazy(() => import('./pages/Cookies'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 const ThankYou = lazy(() => import('./pages/ThankYou'))
+const Guides = lazy(() => import('./pages/Guides'))
+const Guide = lazy(() => import('./pages/Guide'))
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -34,6 +36,8 @@ createRoot(document.getElementById('root')).render(
             <Route path="/risk-disclosure" element={<RiskDisclosure />} />
             <Route path="/cookie-policy" element={<Cookies />} />
             <Route path="/thank-you" element={<ThankYou />} />
+            <Route path="/guides" element={<Guides />} />
+            <Route path="/guides/:slug" element={<Guide />} />
 
             {/* Redirects for the old slugs */}
             <Route path="/about" element={<Navigate to="/about-us" replace />} />
