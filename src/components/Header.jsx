@@ -46,7 +46,7 @@ export default function Header() {
             FAQ
           </NavLink>
           <NavLink to="/login" className={`header__link header__cta btn btn--ink`}>
-            Log in
+            Sign up
           </NavLink>
         </nav>
       </div>

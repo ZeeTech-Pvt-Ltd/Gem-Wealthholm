@@ -333,7 +333,7 @@ export default function Home() {
             See the market with <mark>clarity</mark>
           </>
         }
-        form={<RegistrationForm idPrefix="cta" formId="cta-join" />}
+        form={<RegistrationForm idPrefix="cta" formId="cta-join" submitLabel="Start free access" />}
       />
     </>
   )

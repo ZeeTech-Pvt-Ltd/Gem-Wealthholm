@@ -10,7 +10,7 @@ const ENDPOINT = 'https://quantryxtech.com/homeMailAction.php'
  * intl-tel-input utils, and redirects to /thank-you on success.
  * `idPrefix` keeps input IDs unique across multiple instances.
  */
-export default function RegistrationForm({ idPrefix = 'reg', formId = 'join' }) {
+export default function RegistrationForm({ idPrefix = 'reg', formId = 'join', submitLabel = 'Open an account' }) {
   const [error, setError] = useState(null)
   const [phoneError, setPhoneError] = useState(null)
   const [sending, setSending] = useState(false)
@@ -170,7 +170,7 @@ export default function RegistrationForm({ idPrefix = 'reg', formId = 'join' }) 
         )}
 
         <button className="btn btn--lime btn--block" type="submit" disabled={sending}>
-          {sending ? 'Sending…' : 'Open an account'}
+          {sending ? 'Sending…' : submitLabel}
         </button>
       </form>
     </div>

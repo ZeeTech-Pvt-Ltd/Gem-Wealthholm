@@ -24,7 +24,7 @@ export default function CtaSection({
                 <p className="cta-banner__text">{text}</p>
                 <div className="cta-banner__actions">
                   <Link className="btn btn--ghost-light" to="/contact-us">
-                    Talk to us
+                    Contact support
                     <ArrowRightIcon />
                   </Link>
                 </div>
@@ -41,7 +41,7 @@ export default function CtaSection({
                   Open an account
                 </Link>
                 <Link className="btn btn--ghost-light" to="/contact-us">
-                  Talk to us
+                  Contact support
                   <ArrowRightIcon />
                 </Link>
               </div>

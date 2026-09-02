@@ -20,6 +20,7 @@ export default function ActivityTicker() {
       <div className="ticker__live">
         <span className="ticker__dot" aria-hidden="true" />
         <span className="ticker__live-text">Live market</span>
+        <span className="ticker__indicative">Indicative</span>
       </div>
       <div className="ticker__rail">
         <div className="ticker__track">
