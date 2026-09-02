@@ -13,11 +13,11 @@ export default function Faq() {
         <div className="container">
           <p className="eyebrow">03 — Support</p>
           <h1 className="page-hero__title">
-            Frequently asked <mark>questions</mark>
+            Gem Wealthholm <mark>FAQs</mark>
           </h1>
           <p className="page-hero__text">
-            Everything you need to know about the platform, security, and how
-            to get started.
+            Everything you need to know about the Gem Wealthholm platform,
+            security, and how to get started.
           </p>
         </div>
       </section>

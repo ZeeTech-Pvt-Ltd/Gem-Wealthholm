@@ -30,11 +30,11 @@ export default function Contact() {
         <div className="container">
           <p className="eyebrow">02 — Contact</p>
           <h1 className="page-hero__title">
-            Get in <mark>touch</mark>
+            Get in touch with <mark>Gem Wealthholm</mark>
           </h1>
           <p className="page-hero__text">
-            Questions about the platform, your account, or working with us?
-            Our team is happy to help.
+            Questions about the Gem Wealthholm platform, your account, or
+            working with us? Our team is happy to help.
           </p>
         </div>
       </section>

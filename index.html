@@ -37,6 +37,40 @@
       content="Gem Wealthholm — AI-powered platform with real-time market insights, live trading signals, copy trading and 24/7 monitoring."
     />
     <meta name="twitter:image" content="https://gemwealth-holm.com/og-image.png" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJGKE38ZW1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-WJGKE38ZW1', { send_page_view: false });
+    </script>
+
+    <!-- Structured data: organization + website -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://gemwealth-holm.com/#organization",
+            "name": "Gem Wealthholm",
+            "url": "https://gemwealth-holm.com/",
+            "logo": "https://gemwealth-holm.com/og-image.png"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://gemwealth-holm.com/#website",
+            "name": "Gem Wealthholm",
+            "url": "https://gemwealth-holm.com/",
+            "publisher": { "@id": "https://gemwealth-holm.com/#organization" },
+            "inLanguage": "en"
+          }
+        ]
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Preload the exact latin files used above the fold (hero title + body) -->

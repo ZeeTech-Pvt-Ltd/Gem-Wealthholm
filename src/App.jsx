@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import { faqItems } from './data/faq'
 import './styles/variables.css'
 import './styles/base.css'
 import './styles/components.css'
@@ -63,22 +64,22 @@ const SEO_ROUTES = {
       'Open your Gem Wealthholm account in minutes. AI-powered market insights, live signals and copy trading — free to join.',
   },
   '/terms-of-use': {
-    title: 'Gem Wealthholm — Terms of Use',
+    title: 'Gem Wealthholm — Terms of Use & Platform Rules',
     description:
       'The terms of use that govern your access to the Gem Wealthholm platform and services.',
   },
   '/privacy-policy': {
-    title: 'Gem Wealthholm — Privacy Policy',
+    title: 'Gem Wealthholm — Privacy Policy & Data Protection',
     description:
       'How Gem Wealthholm collects, uses and protects your personal information across the platform.',
   },
   '/risk-disclosure': {
-    title: 'Gem Wealthholm — Risk Disclosure',
+    title: 'Gem Wealthholm — Risk Disclosure & Trading Risks',
     description:
       'The risks you should understand before using the Gem Wealthholm platform, including market volatility and the limits of AI tools.',
   },
   '/cookie-policy': {
-    title: 'Gem Wealthholm — Cookie Policy',
+    title: 'Gem Wealthholm — Cookie Policy & Tracking Technologies',
     description:
       'How Gem Wealthholm uses cookies and similar technologies, and how you can manage them.',
   },
@@ -91,6 +92,7 @@ const SEO_ROUTES = {
 
 function Seo() {
   const { pathname } = useLocation()
+  const lastPathRef = useRef(null)
 
   useEffect(() => {
     const seo =
@@ -104,22 +106,67 @@ function Seo() {
 
     if (seo) {
       document.title = seo.title
-      let meta = document.querySelector('meta[name="description"]')
-      if (!meta) {
-        meta = document.createElement('meta')
-        meta.name = 'description'
-        document.head.appendChild(meta)
+
+      // Ensure the needed meta tags exist, then update them
+      const ensureMeta = (attr, key, value) => {
+        let el = document.querySelector(`meta[${attr}="${key}"]`)
+        if (!el) {
+          el = document.createElement('meta')
+          el.setAttribute(attr, key)
+          document.head.appendChild(el)
+        }
+        el.content = value
       }
-      meta.content = seo.description
+      const url = `https://gemwealth-holm.com${pathname === '/' ? '/' : pathname.replace(/\/+$/, '')}`
+
+      ensureMeta('name', 'description', seo.description)
+      // Open Graph + Twitter follow the current route
+      ensureMeta('property', 'og:title', seo.title)
+      ensureMeta('property', 'og:description', seo.description)
+      ensureMeta('property', 'og:url', url)
+      ensureMeta('name', 'twitter:title', seo.title)
+      ensureMeta('name', 'twitter:description', seo.description)
 
       // Post-submit page should not be indexed
-      let robots = document.querySelector('meta[name="robots"]')
-      if (!robots) {
-        robots = document.createElement('meta')
-        robots.name = 'robots'
-        document.head.appendChild(robots)
+      ensureMeta('name', 'robots', pathname === '/thank-you' ? 'noindex, nofollow' : 'index, follow')
+
+      // Structured data: FAQPage schema on the FAQ surfaces
+      const faqRoutes = pathname === '/' || pathname === '/faqs'
+      let schema = document.querySelector('#seo-schema')
+      if (faqRoutes) {
+        const items = pathname === '/' ? faqItems.slice(0, 6) : faqItems
+        if (!schema) {
+          schema = document.createElement('script')
+          schema.id = 'seo-schema'
+          schema.type = 'application/ld+json'
+          document.head.appendChild(schema)
+        }
+        schema.textContent = JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: items.map((q) => ({
+            '@type': 'Question',
+            name: q.question,
+            acceptedAnswer: { '@type': 'Answer', text: q.answer },
+          })),
+        })
+      } else if (schema) {
+        schema.remove()
       }
-      robots.content = pathname === '/thank-you' ? 'noindex, nofollow' : 'index, follow'
+
+      // GA4: automatic initial page_view is disabled in the config
+      // snippet, so send exactly one page_view per navigation.
+      // (If doubles appear in GA, disable "Page views based on
+      // browser history events" under Enhanced Measurement in GA4.)
+      if (lastPathRef.current !== pathname) {
+        lastPathRef.current = pathname
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'page_view', {
+            page_path: pathname,
+            page_title: seo.title,
+          })
+        }
+      }
     }
   }, [pathname])
 
