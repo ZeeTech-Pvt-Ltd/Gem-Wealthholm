@@ -17,7 +17,7 @@ const contactCards = [
   {
     icon: ClockIcon,
     title: 'Support hours',
-    text: 'Monday – Friday, 9:00 – 18:00 AEST',
+    text: 'Monday - Friday, 9:00 - 18:00 AEST',
   },
 ]
 
@@ -29,7 +29,7 @@ export default function Contact() {
           HELLO
         </span>
         <div className="container">
-          <p className="eyebrow">02 — Contact</p>
+          <p className="eyebrow">02 - Contact</p>
           <h1 className="page-hero__title">
             Get in touch with <mark>Gem Wealthholm</mark>
           </h1>
@@ -44,11 +44,11 @@ export default function Contact() {
         <div className="container">
           <div className="contact__grid">
             <Reveal>
-              <p className="eyebrow">01 — Direct line</p>
+              <p className="eyebrow">01 - Direct line</p>
               <p className="quote">
                 Before you write, a quick tip: the most common questions about
-                the Gem Wealthholm platform — accounts, security, deposits and
-                withdrawals — are already answered in our{' '}
+                the Gem Wealthholm platform - accounts, security, deposits and
+                withdrawals - are already answered in our{' '}
                 <Link to="/faqs" className="contact-card__link">
                   FAQ
                 </Link>

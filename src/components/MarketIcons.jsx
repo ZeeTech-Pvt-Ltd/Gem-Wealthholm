@@ -1,5 +1,5 @@
 /**
- * Flat SVG badge icons for the Markets grid — one per asset.
+ * Flat SVG badge icons for the Markets grid - one per asset.
  * Brand-colored circles with mono monograms; indices get a lime
  * chart glyph, crude oil a droplet. Renders everywhere, no assets.
  */

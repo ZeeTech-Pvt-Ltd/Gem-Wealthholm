@@ -17,7 +17,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="container header__inner">
-        <Link to="/" aria-label="Gem Wealthholm — home">
+        <Link to="/" aria-label="Gem Wealthholm - home">
           <GemLogo />
         </Link>
 

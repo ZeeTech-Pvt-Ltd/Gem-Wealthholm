@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import App from './App'
 
 // Route-level code splitting: non-home pages are their own chunks.
-// The homepage is imported eagerly — it is the landing page, so it
+// The homepage is imported eagerly - it is the landing page, so it
 // must not wait on an extra network round-trip before rendering.
 import Home from './pages/Home'
 const About = lazy(() => import('./pages/About'))

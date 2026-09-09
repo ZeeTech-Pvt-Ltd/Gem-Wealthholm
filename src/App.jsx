@@ -40,57 +40,57 @@ function Canonical() {
 // primary keyword "Gem Wealthholm".
 const SEO_ROUTES = {
   '/': {
-    title: 'Gem Wealthholm — AI Market Insights & Smarter Investing',
+    title: 'Gem Wealthholm - AI Market Insights & Smarter Investing',
     description:
       'Gem Wealthholm is an AI-powered platform with real-time market insights, live trading signals, copy trading and 24/7 monitoring. Invest with clarity.',
   },
   '/about-us': {
-    title: 'About Gem Wealthholm — AI Market Intelligence Platform',
+    title: 'About Gem Wealthholm - AI Market Intelligence Platform',
     description:
       'Learn about Gem Wealthholm: the AI engine, market analysis tools, copy trading and the security-first approach behind the platform.',
   },
   '/contact-us': {
-    title: 'Contact Gem Wealthholm — Support & Assistance',
+    title: 'Contact Gem Wealthholm - Support & Assistance',
     description:
-      'Get in touch with the Gem Wealthholm team. Questions about the platform, your account or partnerships — we are happy to help.',
+      'Get in touch with the Gem Wealthholm team. Questions about the platform, your account or partnerships - we are happy to help.',
   },
   '/faqs': {
-    title: 'Gem Wealthholm FAQs — Frequently Asked Questions',
+    title: 'Gem Wealthholm FAQs - Frequently Asked Questions',
     description:
       'Answers to the most common questions about Gem Wealthholm: the AI engine, security, deposits, withdrawals and how to get started.',
   },
   '/login': {
-    title: 'Gem Wealthholm — Join & Access Your Account',
+    title: 'Gem Wealthholm - Join & Access Your Account',
     description:
-      'Open your Gem Wealthholm account in minutes. AI-powered market insights, live signals and copy trading — free to join.',
+      'Open your Gem Wealthholm account in minutes. AI-powered market insights, live signals and copy trading - free to join.',
   },
   '/terms-of-use': {
-    title: 'Gem Wealthholm — Terms of Use & Platform Rules',
+    title: 'Gem Wealthholm - Terms of Use & Platform Rules',
     description:
       'The terms of use that govern your access to the Gem Wealthholm platform: accounts, deposits, withdrawals, acceptable use and liability.',
   },
   '/privacy-policy': {
-    title: 'Gem Wealthholm — Privacy Policy & Data Protection',
+    title: 'Gem Wealthholm - Privacy Policy & Data Protection',
     description:
       'How Gem Wealthholm collects, uses, shares and protects your personal information, and the privacy rights available to you.',
   },
   '/risk-disclosure': {
-    title: 'Gem Wealthholm — Risk Disclosure & Trading Risks',
+    title: 'Gem Wealthholm - Risk Disclosure & Trading Risks',
     description:
       'The trading risks you should understand before using Gem Wealthholm: market volatility, limits of AI tools, liquidity and technology risks.',
   },
   '/cookie-policy': {
-    title: 'Gem Wealthholm — Cookie Policy & Tracking Technologies',
+    title: 'Gem Wealthholm - Cookie Policy & Tracking Technologies',
     description:
       'How Gem Wealthholm uses cookies and similar technologies across the platform, and how you can manage or disable them.',
   },
   '/thank-you': {
-    title: 'Thank You — Gem Wealthholm',
+    title: 'Thank You - Gem Wealthholm',
     description:
       'Your Gem Wealthholm request has been received. Our team will be in touch with you shortly.',
   },
   '/guides': {
-    title: 'Gem Wealthholm Guides — Reviews & How-To Articles',
+    title: 'Gem Wealthholm Guides - Reviews & How-To Articles',
     description:
       'Practical Gem Wealthholm guides: platform reviews, account access, getting started, and how deposits and withdrawals work.',
   },
@@ -109,7 +109,7 @@ function Seo() {
       (pathname.startsWith('/404')
         ? null
         : {
-            title: 'Page Not Found — Gem Wealthholm',
+            title: 'Page Not Found - Gem Wealthholm',
             description: 'The page you are looking for could not be found on Gem Wealthholm.',
           })
 

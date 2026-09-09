@@ -3,7 +3,7 @@ import 'intl-tel-input/build/css/intlTelInput.css'
 import utilsUrl from 'intl-tel-input/build/js/utils.js?url'
 
 /**
- * Phone input powered by intl-tel-input 17.0.8 — the exact widget the
+ * Phone input powered by intl-tel-input 17.0.8 - the exact widget the
  * reference sites use (flag + separate dial code, preferred countries,
  * validation utils). The library (with all country data) is loaded
  * dynamically so it stays out of the initial bundle. Visitor country

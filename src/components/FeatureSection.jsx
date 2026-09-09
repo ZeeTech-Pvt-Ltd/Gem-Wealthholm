@@ -7,14 +7,14 @@ import { ArrowRightIcon } from './Icons'
  * Reusable editorial feature section: numbered section head, text column
  * with numbered hairline bullets, and a framed line-art figure.
  * Props:
- *  - eyebrow: mono label, e.g. "01 — Engine"
+ *  - eyebrow: mono label, e.g. "01 - Engine"
  *  - title: ReactNode (supports <mark>)
  *  - intro: short paragraph in the section head
  *  - paragraphs: string[]
  *  - bullets: string[] (numbered hairline rows)
  *  - visualVariant: "insights" | "ai" | "shield" (used when no image)
  *  - image / imageAlt: photo to show instead of the SVG visual
- *  - caption: figure caption, e.g. "Fig. 02 — Adaptive models"
+ *  - caption: figure caption, e.g. "Fig. 02 - Adaptive models"
  *  - flip: put the figure on the right
  *  - cta: { to, label }
  *  - paper: tint the section background

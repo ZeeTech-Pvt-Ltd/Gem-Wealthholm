@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------------
-   Base — light-editorial foundation
+   Base - light-editorial foundation
    Swiss grid, hairline rules, oversized type, lime marker highlights
 ------------------------------------------------------------------- */
 
@@ -147,7 +147,7 @@ mark {
   margin-bottom: 18px;
 }
 
-/* Mono eyebrow label — "01 — ENGINE" */
+/* Mono eyebrow label - "01 - ENGINE" */
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -429,7 +429,7 @@ mark {
   text-underline-offset: 3px;
 }
 
-/* Honeypot — hidden from humans, catches bots */
+/* Honeypot - hidden from humans, catches bots */
 .hp-field {
   display: none;
 }

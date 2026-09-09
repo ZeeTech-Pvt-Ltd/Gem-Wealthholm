@@ -1,5 +1,5 @@
 /**
- * Decorative SVG illustration — flat line-art in editorial style:
+ * Decorative SVG illustration - flat line-art in editorial style:
  * thin ink strokes, one lime facet, dotted grid, dashed chart line.
  * Variants: "insights" (gem + rising chart), "ai" (gem + signal nodes),
  *           "shield" (gem inside shield outline), "chart" (candlestick
@@ -254,7 +254,7 @@ export default function GemVisual({ variant = 'insights' }) {
         <g>
           {variant !== 'shield' && (
             <g>
-              {/* gem — outline with one lime facet */}
+              {/* gem - outline with one lime facet */}
               <path
                 d="M260 96 L352 196 L260 296 L168 196 Z"
                 fill="#ffffff"
@@ -270,7 +270,7 @@ export default function GemVisual({ variant = 'insights' }) {
 
           {variant === 'insights' && (
             <g>
-              {/* rising chart — dashed */}
+              {/* rising chart - dashed */}
               <path
                 d="M60 330 L140 272 L210 296 L300 190 L365 218 L450 108"
                 fill="none"
@@ -356,7 +356,7 @@ export default function GemVisual({ variant = 'insights' }) {
       {/* mono coordinates (the dashboard variant draws its own title) */}
       {variant !== 'dashboard' && (
         <text x="30" y="30" fontFamily="'Space Mono', monospace" fontSize="11" fill="#9aa1ab">
-          {variant === 'chart' ? 'BTC/USD — 1H' : '00:00 UTC'}
+          {variant === 'chart' ? 'BTC/USD - 1H' : '00:00 UTC'}
         </text>
       )}
       <text x="412" y="382" fontFamily="'Space Mono', monospace" fontSize="11" fill="#9aa1ab">

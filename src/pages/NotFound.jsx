@@ -8,7 +8,7 @@ export default function NotFound() {
         404
       </span>
       <div className="container">
-        <p className="eyebrow">Error — 404</p>
+        <p className="eyebrow">Error - 404</p>
         <h1 className="page-hero__title">
           Page not <mark>found</mark>
         </h1>

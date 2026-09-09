@@ -13,12 +13,12 @@ export default function About() {
           ABOUT
         </span>
         <div className="container">
-          <p className="eyebrow">01 — Company</p>
+          <p className="eyebrow">01 - Company</p>
           <h1 className="page-hero__title">
             About <mark>Gem Wealthholm</mark>
           </h1>
           <p className="page-hero__text">
-            We build technology that makes market information understandable —
+            We build technology that makes market information understandable -
             so people can make better-informed decisions with structure and
             context.
           </p>
@@ -27,16 +27,16 @@ export default function About() {
 
       <FeatureSection
         paper
-        eyebrow="01 — Mission"
+        eyebrow="01 - Mission"
         title={
           <>
             Smarter investing, powered by <mark>technology</mark>
           </>
         }
-        intro="Artificial intelligence supports human judgement — it never replaces it."
+        intro="Artificial intelligence supports human judgement - it never replaces it."
         paragraphs={[
           'Gem Wealthholm was created to make market work feel simpler, no matter your experience level. The platform turns dense market data into clear, practical insights so you can act with more confidence in changing conditions.',
-          'The system scans huge volumes of information in real time, watching for shifts, spotting patterns, and reacting quickly to market signals — without needing to dig through complex analytics.',
+          'The system scans huge volumes of information in real time, watching for shifts, spotting patterns, and reacting quickly to market signals - without needing to dig through complex analytics.',
         ]}
         bullets={[
           'Insights presented in plain language',
@@ -56,7 +56,7 @@ export default function About() {
           <Reveal>
             <div className="section-head">
               <div>
-                <p className="eyebrow">02 — Values</p>
+                <p className="eyebrow">02 - Values</p>
                 <h2 className="title">
                   What we <mark>stand for</mark>
                 </h2>
@@ -87,7 +87,7 @@ export default function About() {
 
       {/* Protection */}
       <FeatureSection
-        eyebrow="03 — Protection"
+        eyebrow="03 - Protection"
         title={
           <>
             Control and protection, <mark>by design</mark>
@@ -96,7 +96,7 @@ export default function About() {
         intro="Security that lets you focus on the market, not on technical risk."
         paragraphs={[
           'Data is protected, access is managed, and transactions travel through secure channels. Gem Wealthholm treats information with transparency and integrity.',
-          'The tools exist to support your judgement — every decision remains yours.',
+          'The tools exist to support your judgement - every decision remains yours.',
         ]}
         bullets={[
           'Encrypted channels for every transaction',

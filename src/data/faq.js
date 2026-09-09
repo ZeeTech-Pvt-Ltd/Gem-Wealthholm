@@ -2,12 +2,12 @@ export const faqItems = [
   {
     question: 'What is Gem Wealthholm?',
     answer:
-      'Gem Wealthholm is an AI-driven platform that turns dense market data into clear, practical insights. It scans large volumes of information in real time, spots patterns, and surfaces what matters most — so you can act with more confidence, whatever your experience level.',
+      'Gem Wealthholm is an AI-driven platform that turns dense market data into clear, practical insights. It scans large volumes of information in real time, spots patterns, and surfaces what matters most - so you can act with more confidence, whatever your experience level.',
   },
   {
     question: 'How does the AI engine work?',
     answer:
-      'The engine continuously watches markets for shifts — impulses, reversals, and trend changes — and reacts quickly to new signals. Instead of relying on stale indicators, it uses adaptive models that refresh as conditions change, giving you an up-to-date picture at all times.',
+      'The engine continuously watches markets for shifts - impulses, reversals, and trend changes - and reacts quickly to new signals. Instead of relying on stale indicators, it uses adaptive models that refresh as conditions change, giving you an up-to-date picture at all times.',
   },
   {
     question: 'Do I need trading experience to use the platform?',
@@ -22,7 +22,7 @@ export const faqItems = [
   {
     question: 'What is copy trading?',
     answer:
-      'Copy trading lets you follow strategies used by experienced market participants. You can observe their moves and apply proven approaches in your own activity — combining expert insight with automation.',
+      'Copy trading lets you follow strategies used by experienced market participants. You can observe their moves and apply proven approaches in your own activity - combining expert insight with automation.',
   },
   {
     question: 'How do I get started?',
@@ -32,7 +32,7 @@ export const faqItems = [
   {
     question: 'Can I use Gem Wealthholm on my phone?',
     answer:
-      'Yes. The platform works in any modern browser and is fully responsive, so you can check insights and monitor markets from your phone, tablet, or desktop — wherever you are.',
+      'Yes. The platform works in any modern browser and is fully responsive, so you can check insights and monitor markets from your phone, tablet, or desktop - wherever you are.',
   },
   {
     question: 'What support is available?',

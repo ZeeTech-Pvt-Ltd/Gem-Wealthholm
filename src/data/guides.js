@@ -1,11 +1,11 @@
 // Guides/articles targeting "Gem Wealthholm" long-tail keywords.
-// Original content — keep factual and aligned with the platform.
+// Original content - keep factual and aligned with the platform.
 
 export const guides = [
   {
     slug: 'gem-wealthholm-review',
-    title: 'Gem Wealthholm Review — Is It Right for You?',
-    seoTitle: 'Gem Wealthholm Review — Features, Pros & How It Works',
+    title: 'Gem Wealthholm Review - Is It Right for You?',
+    seoTitle: 'Gem Wealthholm Review - Features, Pros & How It Works',
     seoDescription:
       'An honest Gem Wealthholm review: how the AI market analysis works, key features, who it suits, and what to know before you open an account.',
     date: '1 September 2026',
@@ -14,7 +14,7 @@ export const guides = [
       {
         heading: 'What is Gem Wealthholm?',
         body: [
-          'Gem Wealthholm is an AI-driven platform built to make market analysis easier to understand. Instead of burying you in raw data, it turns market information into clear signals, structured insights and simple explanations — no matter your experience level.',
+          'Gem Wealthholm is an AI-driven platform built to make market analysis easier to understand. Instead of burying you in raw data, it turns market information into clear signals, structured insights and simple explanations - no matter your experience level.',
         ],
       },
       {
@@ -42,15 +42,15 @@ export const guides = [
       {
         heading: 'What to keep in mind',
         body: [
-          'Gem Wealthholm provides technology and information tools — it does not give personalised financial advice. Market activity involves risk, and you should never invest more than you can afford to lose. Read the Risk Disclosure before you start.',
+          'Gem Wealthholm provides technology and information tools - it does not give personalised financial advice. Market activity involves risk, and you should never invest more than you can afford to lose. Read the Risk Disclosure before you start.',
         ],
       },
     ],
   },
   {
     slug: 'gem-wealthholm-login',
-    title: 'How to Log In to Gem Wealthholm — Step-by-Step Guide',
-    seoTitle: 'Gem Wealthholm Login — Account Access Guide',
+    title: 'How to Log In to Gem Wealthholm - Step-by-Step Guide',
+    seoTitle: 'Gem Wealthholm Login - Account Access Guide',
     seoDescription:
       'How to access your Gem Wealthholm account: opening an account, completing the registration form, and what to do if you need help signing in.',
     date: '1 September 2026',
@@ -71,7 +71,7 @@ export const guides = [
       {
         heading: 'Phone number tips',
         body: [
-          'The phone field automatically detects your country and shows the correct format. If it picks the wrong dial code, open the country selector and choose the right one before typing your number — a valid number is required to submit the form.',
+          'The phone field automatically detects your country and shows the correct format. If it picks the wrong dial code, open the country selector and choose the right one before typing your number - a valid number is required to submit the form.',
         ],
       },
       {
@@ -85,32 +85,32 @@ export const guides = [
   {
     slug: 'gem-wealthholm-get-started',
     title: 'How to Get Started with Gem Wealthholm',
-    seoTitle: 'Get Started with Gem Wealthholm — Beginner’s Guide',
+    seoTitle: 'Get Started with Gem Wealthholm - Beginner’s Guide',
     seoDescription:
       'A beginner’s guide to getting started with Gem Wealthholm: create an account, make your first deposit, and understand how the AI engine works.',
     date: '1 September 2026',
     readTime: '3 min read',
     sections: [
       {
-        heading: 'Step 1 — Create an account',
+        heading: 'Step 1 - Create an account',
         body: [
           'Registration takes a couple of minutes and is free. Fill in the join form with your name, email and phone number, and accept the terms. There is no complex setup involved.',
         ],
       },
       {
-        heading: 'Step 2 — Make your first deposit',
+        heading: 'Step 2 - Make your first deposit',
         body: [
           'Deposits start from 347 A$ and can be made by card or crypto. Details of accepted methods and processing times are shown inside the platform before you commit.',
         ],
       },
       {
-        heading: 'Step 3 — Let the AI work',
+        heading: 'Step 3 - Let the AI work',
         body: [
           'Once your account is active, the AI engine scans markets continuously and highlights what matters. You can review signals at your own pace, or explore copy trading to follow strategies used by experienced participants.',
         ],
       },
       {
-        heading: 'Step 4 — Withdraw when you like',
+        heading: 'Step 4 - Withdraw when you like',
         body: [
           'Withdrawals are straightforward: request a withdrawal from your account at any time. There are no hidden charges, and you stay in control of your funds.',
         ],
@@ -120,7 +120,7 @@ export const guides = [
   {
     slug: 'gem-wealthholm-deposits-withdrawals',
     title: 'Gem Wealthholm Deposits & Withdrawals Explained',
-    seoTitle: 'Gem Wealthholm Deposits & Withdrawals — Fees & Methods',
+    seoTitle: 'Gem Wealthholm Deposits & Withdrawals - Fees & Methods',
     seoDescription:
       'How deposits and withdrawals work on Gem Wealthholm: minimum amounts, payment methods, processing and what you need to know before moving funds.',
     date: '1 September 2026',
@@ -147,7 +147,7 @@ export const guides = [
       {
         heading: 'Keep in mind',
         body: [
-          'Always double-check the details before confirming a deposit or withdrawal. If anything looks unclear, contact support before moving funds — the team is happy to help.',
+          'Always double-check the details before confirming a deposit or withdrawal. If anything looks unclear, contact support before moving funds - the team is happy to help.',
         ],
       },
     ],

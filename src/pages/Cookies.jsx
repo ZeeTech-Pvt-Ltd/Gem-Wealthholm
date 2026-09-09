@@ -1,6 +1,6 @@
 import LegalDoc from '../components/LegalDoc'
 
-// Template legal text — have qualified counsel review before launch.
+// Template legal text - have qualified counsel review before launch.
 const sections = [
   {
     heading: 'What Are Cookies',
@@ -56,7 +56,7 @@ const sections = [
 export default function Cookies() {
   return (
     <LegalDoc
-      eyebrow="08 — Legal"
+      eyebrow="08 - Legal"
       title={
         <>
           Cookie <mark>Policy</mark>

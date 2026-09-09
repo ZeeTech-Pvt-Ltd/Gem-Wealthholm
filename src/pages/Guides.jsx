@@ -11,12 +11,12 @@ export default function Guides() {
           GUIDES
         </span>
         <div className="container">
-          <p className="eyebrow">04 — Learn</p>
+          <p className="eyebrow">04 - Learn</p>
           <h1 className="page-hero__title">
             Gem Wealthholm <mark>guides</mark>
           </h1>
           <p className="page-hero__text">
-            Practical articles about the Gem Wealthholm platform — reviews,
+            Practical articles about the Gem Wealthholm platform - reviews,
             account access, getting started, and how deposits and withdrawals
             work.
           </p>

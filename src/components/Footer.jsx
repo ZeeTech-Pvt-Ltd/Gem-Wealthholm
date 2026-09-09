@@ -11,7 +11,7 @@ export default function Footer() {
             <GemLogo />
             <p className="footer__blurb">
               Gem Wealthholm is an AI-driven platform that turns complex market
-              data into clear, practical insights — helping you make more
+              data into clear, practical insights - helping you make more
               informed decisions with confidence.
             </p>
           </div>
@@ -54,7 +54,7 @@ export default function Footer() {
         <div className="footer__bottom">
           <div className="footer__bottom-inner">
             <span className="footer__copyright">
-              © {new Date().getFullYear()} GEM WEALTHHOLM — ALL RIGHTS RESERVED
+              © {new Date().getFullYear()} GEM WEALTHHOLM - ALL RIGHTS RESERVED
             </span>
             <nav className="footer__legal" aria-label="Footer legal">
               <Link to="/terms-of-use">Terms</Link>
@@ -67,7 +67,7 @@ export default function Footer() {
             Gem Wealthholm provides technology and information tools to support
             your own decision-making. It does not provide personalised financial
             advice, and nothing on this website is an offer or recommendation to
-            buy or sell any asset. Market activity involves risk — never invest
+            buy or sell any asset. Market activity involves risk - never invest
             more than you can afford to lose.
           </p>
         </div>

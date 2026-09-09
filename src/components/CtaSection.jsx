@@ -5,7 +5,7 @@ import { ArrowRightIcon } from './Icons'
 export default function CtaSection({
   eyebrow = 'Ready when you are',
   title,
-  text = 'Join Gem Wealthholm today and let AI-powered insights help you make more informed decisions — around the clock.',
+  text = 'Join Gem Wealthholm today and let AI-powered insights help you make more informed decisions - around the clock.',
   ghostWord = 'GW',
   form = null,
 }) {

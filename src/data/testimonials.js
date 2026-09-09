@@ -13,7 +13,7 @@ export const testimonials = [
     rating: 5,
     date: '2 weeks ago',
     quote:
-      'I was sceptical at first — I’ve seen too many “AI trading” promises. What won me over is how honest the dashboard is. It shows the signals and lets me decide. My mornings start with the daily scan now.',
+      'I was sceptical at first - I’ve seen too many “AI trading” promises. What won me over is how honest the dashboard is. It shows the signals and lets me decide. My mornings start with the daily scan now.',
   },
   {
     name: 'Priya S.',
@@ -21,7 +21,7 @@ export const testimonials = [
     rating: 5,
     date: '3 weeks ago',
     quote:
-      'Copy trading was the feature I didn’t know I needed. I follow two strategies and check them once a day. Nothing flashy — just clear numbers and a clear history of every move.',
+      'Copy trading was the feature I didn’t know I needed. I follow two strategies and check them once a day. Nothing flashy - just clear numbers and a clear history of every move.',
   },
   {
     name: 'Daniel O.',
@@ -29,7 +29,7 @@ export const testimonials = [
     rating: 4,
     date: '1 month ago',
     quote:
-      'Customer support actually replies — a real person, within the hour. That alone puts it ahead of every platform I’ve tried before.',
+      'Customer support actually replies - a real person, within the hour. That alone puts it ahead of every platform I’ve tried before.',
   },
   {
     name: 'Hannah W.',

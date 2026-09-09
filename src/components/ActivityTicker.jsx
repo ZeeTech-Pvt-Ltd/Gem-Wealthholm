@@ -1,6 +1,6 @@
 import MarketIcon from './MarketIcons'
 
-// Sample market data — replace with live data from an API in production.
+// Sample market data - replace with live data from an API in production.
 const tickerData = [
   { symbol: 'BTC', price: '97,240.10', change: '+2.4%', up: true },
   { symbol: 'ETH', price: '3,418.55', change: '+1.8%', up: true },

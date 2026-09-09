@@ -25,7 +25,7 @@ export const gridCards = [
   {
     step: '02',
     title: 'A clear analysis zone for smarter decisions',
-    text: 'A tech-led workspace where artificial intelligence supports human judgement rather than replacing it — making it easier to understand market shifts and compare options.',
+    text: 'A tech-led workspace where artificial intelligence supports human judgement rather than replacing it - making it easier to understand market shifts and compare options.',
   },
   {
     step: '03',
@@ -38,7 +38,7 @@ export const values = [
   {
     icon: 'shield',
     title: 'Security first',
-    text: 'Protected data, managed access, and secure channels for every transaction — so you can focus on outcomes instead of technical risk.',
+    text: 'Protected data, managed access, and secure channels for every transaction - so you can focus on outcomes instead of technical risk.',
   },
   {
     icon: 'eye',

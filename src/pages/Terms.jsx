@@ -1,6 +1,6 @@
 import LegalDoc from '../components/LegalDoc'
 
-// Template legal text — have qualified counsel review before launch.
+// Template legal text - have qualified counsel review before launch.
 const sections = [
   {
     heading: 'Acceptance of Terms',
@@ -19,7 +19,7 @@ const sections = [
     heading: 'Nature of the Service',
     body: [
       'Gem Wealthholm provides technology and information tools, including AI-assisted market analysis, signals, and related content. The Service is provided for informational purposes only.',
-      'Gem Wealthholm is not a licensed financial adviser, broker, or investment manager. Nothing on the Service constitutes personalised investment advice, a recommendation, an offer, or a solicitation to buy or sell any asset. Any decision you make — and its outcome — remains your responsibility.',
+      'Gem Wealthholm is not a licensed financial adviser, broker, or investment manager. Nothing on the Service constitutes personalised investment advice, a recommendation, an offer, or a solicitation to buy or sell any asset. Any decision you make - and its outcome - remains your responsibility.',
     ],
   },
   {
@@ -93,7 +93,7 @@ const sections = [
 export default function Terms() {
   return (
     <LegalDoc
-      eyebrow="05 — Legal"
+      eyebrow="05 - Legal"
       title={
         <>
           Terms of <mark>Use</mark>

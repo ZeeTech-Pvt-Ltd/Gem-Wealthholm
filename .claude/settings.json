@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(timeout 40 bash -c 'until curl -sf http://localhost:5175/ >/dev/null 2>&1; do sleep 1; done')",
+      "Read(//c/c/Users/samee/AppData/Local/Temp/gw-shots/**)",
+      "Bash(node verify-dash.cjs)",
+      "Read(//c/Users/samee/AppData/Local/Temp/claude/c--Users-samee-Desktop-Gem-Wealthholm/3f77e20d-cfd4-43ba-b37c-d1981d5ae6fd/tasks/**)",
+      "Bash(netstat -ano)",
+      "Bash(sed -i 's|localhost:5175|localhost:5174|g' verify-dash.cjs)"
+    ]
+  }
+}

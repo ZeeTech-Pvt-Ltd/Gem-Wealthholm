@@ -23,7 +23,7 @@ export default function RegistrationForm({ idPrefix = 'reg', formId = 'join', su
     e.preventDefault()
     const form = e.currentTarget
 
-    // Honeypot filled — silently pretend success for the bot
+    // Honeypot filled - silently pretend success for the bot
     if (form.website.value) {
       navigate('/thank-you')
       return
@@ -69,10 +69,10 @@ export default function RegistrationForm({ idPrefix = 'reg', formId = 'join', su
   return (
     <div className="form-card form-card--titled" id={formId}>
       <div className="form-card__title">Join now</div>
-      <div className="form-card__sub">Membership — free to open</div>
+      <div className="form-card__sub">Membership - free to open</div>
 
       <form onSubmit={handleSubmit}>
-        {/* honeypot — hidden from humans, catches bots */}
+        {/* honeypot - hidden from humans, catches bots */}
         <input
           type="text"
           name="website"

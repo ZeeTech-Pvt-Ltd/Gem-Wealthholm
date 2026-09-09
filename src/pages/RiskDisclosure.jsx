@@ -1,6 +1,6 @@
 import LegalDoc from '../components/LegalDoc'
 
-// Template legal text — have qualified counsel review before launch.
+// Template legal text - have qualified counsel review before launch.
 const sections = [
   {
     heading: 'General Risk Statement',
@@ -17,7 +17,7 @@ const sections = [
   {
     heading: 'No Investment Advice',
     body: [
-      'Gem Wealthholm provides technology and information tools. Nothing on the platform — including AI-generated analysis, signals, or other content — constitutes personalised investment advice, a recommendation, or a solicitation to trade. All content is provided for informational purposes only.',
+      'Gem Wealthholm provides technology and information tools. Nothing on the platform - including AI-generated analysis, signals, or other content - constitutes personalised investment advice, a recommendation, or a solicitation to trade. All content is provided for informational purposes only.',
     ],
   },
   {
@@ -67,7 +67,7 @@ const sections = [
 export default function RiskDisclosure() {
   return (
     <LegalDoc
-      eyebrow="07 — Legal"
+      eyebrow="07 - Legal"
       title={
         <>
           Risk <mark>Disclosure</mark>

@@ -1,6 +1,6 @@
 import LegalDoc from '../components/LegalDoc'
 
-// Template legal text — have qualified counsel review before launch.
+// Template legal text - have qualified counsel review before launch.
 const sections = [
   {
     heading: 'Introduction',
@@ -101,7 +101,7 @@ const sections = [
 export default function Privacy() {
   return (
     <LegalDoc
-      eyebrow="06 — Legal"
+      eyebrow="06 - Legal"
       title={
         <>
           Privacy <mark>Notice</mark>
