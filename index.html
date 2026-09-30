@@ -39,14 +39,25 @@
     />
     <meta name="twitter:image" content="https://gemwealth-holm.com/og-image.png" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJGKE38ZW1"></script>
+    <!-- Google tag (gtag.js) — stub first, library loads after page load -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-WJGKE38ZW1', { send_page_view: false });
+
+      var loadGA = function () {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WJGKE38ZW1';
+        document.head.appendChild(s);
+      };
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(loadGA, { timeout: 3000 });
+      } else {
+        setTimeout(loadGA, 2500);
+      }
     </script>
 
     <!-- Structured data: organization + website -->
