@@ -1,0 +1,105 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Gem Wealthholm",
+    "identifier": "did:web:gemwealth-holm.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:gemwealth-holm.com:web:homepage",
+      "displayName": "Gem Wealthholm - AI Market Insights",
+      "type": "text/html",
+      "url": "https://gemwealth-holm.com/",
+      "description": "Homepage of the Gem Wealthholm AI-driven market insights platform: real-time signals, copy trading, live market ticker and sign-up.",
+      "tags": ["homepage", "ai", "market-insights", "trading"]
+    },
+    {
+      "identifier": "urn:air:gemwealth-holm.com:web:about",
+      "displayName": "About Gem Wealthholm",
+      "type": "text/html",
+      "url": "https://gemwealth-holm.com/about-us",
+      "description": "About the Gem Wealthholm platform: mission, values, security-first approach and how the AI engine supports market analysis.",
+      "tags": ["about", "company", "ai-platform"]
+    },
+    {
+      "identifier": "urn:air:gemwealth-holm.com:web:faqs",
+      "displayName": "Gem Wealthholm FAQs",
+      "type": "text/html",
+      "url": "https://gemwealth-holm.com/faqs",
+      "description": "Frequently asked questions about the Gem Wealthholm platform: the AI engine, security, deposits, withdrawals and getting started.",
+      "tags": ["faq", "support", "help"]
+    },
+    {
+      "identifier": "urn:air:gemwealth-holm.com:web:guides",
+      "displayName": "Gem Wealthholm Guides",
+      "type": "text/html",
+      "url": "https://gemwealth-holm.com/guides",
+      "description": "Practical Gem Wealthholm guides: platform review, account access, getting started, and deposits and withdrawals.",
+      "tags": ["guides", "articles", "how-to"]
+    },
+    {
+      "identifier": "urn:air:gemwealth-holm.com:web:guides:review",
+      "displayName": "Gem Wealthholm Review",
+      "type": "text/html",
+      "url": "https://gemwealth-holm.com/guides/gem-wealthholm-review",
+      "description": "An honest review of the Gem Wealthholm platform: how the AI market analysis works, key features and who it suits.",
+      "tags": ["review", "guide"]
+    },
+    {
+      "identifier": "urn:air:gemwealth-holm.com:web:guides:login",
+      "displayName": "Gem Wealthholm Login Guide",
+      "type": "text/html",
+      "url": "https://gemwealth-holm.com/guides/gem-wealthholm-login",
+      "description": "Step-by-step guide to accessing a Gem Wealthholm account, completing registration and getting help signing in.",
+      "tags": ["login", "guide", "account"]
+    },
+    {
+      "identifier": "urn:air:gemwealth-holm.com:web:guides:get-started",
+      "displayName": "Get Started with Gem Wealthholm",
+      "type": "text/html",
+      "url": "https://gemwealth-holm.com/guides/gem-wealthholm-get-started",
+      "description": "A beginner's guide to Gem Wealthholm: create an account, make a first deposit and understand how the AI engine works.",
+      "tags": ["getting-started", "guide", "beginner"]
+    },
+    {
+      "identifier": "urn:air:gemwealth-holm.com:web:guides:deposits-withdrawals",
+      "displayName": "Gem Wealthholm Deposits and Withdrawals",
+      "type": "text/html",
+      "url": "https://gemwealth-holm.com/guides/gem-wealthholm-deposits-withdrawals",
+      "description": "How deposits and withdrawals work on Gem Wealthholm: minimum amounts, payment methods and processing.",
+      "tags": ["deposits", "withdrawals", "guide"]
+    },
+    {
+      "identifier": "urn:air:gemwealth-holm.com:web:legal:terms",
+      "displayName": "Gem Wealthholm Terms of Use",
+      "type": "text/html",
+      "url": "https://gemwealth-holm.com/terms-of-use",
+      "description": "Terms of use governing access to the Gem Wealthholm platform: accounts, deposits, withdrawals, acceptable use and liability.",
+      "tags": ["legal", "terms"]
+    },
+    {
+      "identifier": "urn:air:gemwealth-holm.com:web:legal:privacy",
+      "displayName": "Gem Wealthholm Privacy Policy",
+      "type": "text/html",
+      "url": "https://gemwealth-holm.com/privacy-policy",
+      "description": "How Gem Wealthholm collects, uses, shares and protects personal information, and the privacy rights available to users.",
+      "tags": ["legal", "privacy"]
+    },
+    {
+      "identifier": "urn:air:gemwealth-holm.com:web:legal:risk",
+      "displayName": "Gem Wealthholm Risk Disclosure",
+      "type": "text/html",
+      "url": "https://gemwealth-holm.com/risk-disclosure",
+      "description": "Trading risks to understand before using Gem Wealthholm: market volatility, limits of AI tools, liquidity and technology risks.",
+      "tags": ["legal", "risk"]
+    },
+    {
+      "identifier": "urn:air:gemwealth-holm.com:web:sitemap",
+      "displayName": "Gem Wealthholm Sitemap",
+      "type": "application/xml",
+      "url": "https://gemwealth-holm.com/sitemap.xml",
+      "description": "XML sitemap of all indexable pages on gemwealth-holm.com.",
+      "tags": ["sitemap", "discovery"]
+    }
+  ]
+}

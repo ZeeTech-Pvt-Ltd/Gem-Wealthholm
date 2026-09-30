@@ -36,6 +36,20 @@ function Canonical() {
   return null
 }
 
+// Breadcrumb labels for BreadcrumbList schema
+const BREADCRUMB_LABELS = {
+  '/about-us': 'About Us',
+  '/contact-us': 'Contact Us',
+  '/faqs': 'FAQs',
+  '/login': 'Access',
+  '/guides': 'Guides',
+  '/terms-of-use': 'Terms of Use',
+  '/privacy-policy': 'Privacy Policy',
+  '/risk-disclosure': 'Risk Disclosure',
+  '/cookie-policy': 'Cookie Policy',
+  '/thank-you': 'Thank You',
+}
+
 // Per-route title + meta description, built around the
 // primary keyword "Gem Wealthholm".
 const SEO_ROUTES = {
@@ -162,6 +176,39 @@ function Seo() {
       } else if (schema) {
         schema.remove()
       }
+
+      // Structured data: BreadcrumbList on every route
+      const crumbs = [{ name: 'Home', path: '/' }]
+      if (pathname !== '/') {
+        if (pathname.startsWith('/guides/')) {
+          crumbs.push({ name: 'Guides', path: '/guides' })
+          crumbs.push({ name: guide?.title || 'Guide', path: pathname })
+        } else if (pathname === '/guides') {
+          crumbs.push({ name: 'Guides', path: '/guides' })
+        } else {
+          crumbs.push({
+            name: BREADCRUMB_LABELS[pathname] || pathname.replace(/[-/]/g, ' '),
+            path: pathname,
+          })
+        }
+      }
+      let breadcrumb = document.querySelector('#seo-breadcrumb')
+      if (!breadcrumb) {
+        breadcrumb = document.createElement('script')
+        breadcrumb.id = 'seo-breadcrumb'
+        breadcrumb.type = 'application/ld+json'
+        document.head.appendChild(breadcrumb)
+      }
+      breadcrumb.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: crumbs.map((crumb, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: crumb.name,
+          item: `https://gemwealth-holm.com${crumb.path === '/' ? '/' : crumb.path}`,
+        })),
+      })
 
       // GA4: automatic initial page_view is disabled in the config
       // snippet, so send exactly one page_view per navigation.

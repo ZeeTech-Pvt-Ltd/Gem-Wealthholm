@@ -1,0 +1,25 @@
+# Gem Wealthholm
+
+> Gem Wealthholm is an AI-driven market insights platform with real-time market scanning, live trading signals, copy trading, and educational guides. This file describes the site's structure for LLMs and crawlers.
+
+## Key pages
+
+- [Homepage](https://gemwealth-holm.com/): AI market insights, live market ticker, and account sign-up.
+- [About](https://gemwealth-holm.com/about-us): the mission, values, and security-first approach behind the platform.
+- [Guides](https://gemwealth-holm.com/guides): reviews and how-to articles about the platform.
+- [FAQs](https://gemwealth-holm.com/faqs): frequently asked questions about accounts, security, deposits, and withdrawals.
+- [Contact](https://gemwealth-holm.com/contact-us): support email and office details.
+
+## Guides
+
+- [Gem Wealthholm Review](https://gemwealth-holm.com/guides/gem-wealthholm-review): features, pros, and who the platform suits.
+- [Gem Wealthholm Login Guide](https://gemwealth-holm.com/guides/gem-wealthholm-login): step-by-step account access instructions.
+- [Get Started with Gem Wealthholm](https://gemwealth-holm.com/guides/gem-wealthholm-get-started): a beginner's walkthrough.
+- [Gem Wealthholm Deposits & Withdrawals](https://gemwealth-holm.com/guides/gem-wealthholm-deposits-withdrawals): minimum amounts, methods, and processing.
+
+## Legal
+
+- [Terms of Use](https://gemwealth-holm.com/terms-of-use)
+- [Privacy Policy](https://gemwealth-holm.com/privacy-policy)
+- [Risk Disclosure](https://gemwealth-holm.com/risk-disclosure)
+- [Cookie Policy](https://gemwealth-holm.com/cookie-policy)
