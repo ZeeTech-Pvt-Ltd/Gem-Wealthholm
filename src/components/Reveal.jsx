@@ -18,12 +18,16 @@ function stop() {
 
 function flush() {
   raf = 0
+  // Two phases: read all rects first, then write all classes.
+  // Interleaving writes and reads would force a reflow per element.
+  const toReveal = []
   for (const el of pending) {
     const rect = el.getBoundingClientRect()
-    if (rect.top < window.innerHeight * 0.94) {
-      pending.delete(el)
-      el.classList.add('is-visible')
-    }
+    if (rect.top < window.innerHeight * 0.94) toReveal.push(el)
+  }
+  for (const el of toReveal) {
+    pending.delete(el)
+    el.classList.add('is-visible')
   }
   if (pending.size === 0) stop()
 }
