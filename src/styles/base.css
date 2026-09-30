@@ -38,6 +38,9 @@ body {
 
 main {
   flex: 1 0 auto;
+  /* Keep the footer below the fold before deferred sections render,
+     so their insertion cannot shift visible content */
+  min-height: 150vh;
 }
 
 img,

@@ -322,6 +322,20 @@
   padding: 56px 0 72px;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+}
+
+/* Desktop: fixed hero height and pre-reserved form height, so the
+   phone-widget upgrade (and any later content) causes no shift */
+@media (min-width: 992px) {
+  .hero {
+    min-height: 760px;
+  }
+
+  .hero #join {
+    min-height: 554px;
+  }
 }
 
 .hero__row {

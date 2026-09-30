@@ -170,6 +170,16 @@
         background: var(--sp-paper);
         border-bottom: 1px solid var(--sp-line);
         padding: 56px 0 72px;
+        display: flex;
+        align-items: center;
+      }
+      /* Desktop: the splash is a mobile-first paint optimization.
+         Desktop FCP is already fast without it, and the splash ->
+         React swap caused layout shift. Hide it on desktop. */
+      @media (min-width: 992px) {
+        #splash {
+          display: none !important;
+        }
       }
       .sp-container {
         max-width: 1200px;
@@ -201,11 +211,11 @@
       }
       .sp-title {
         font-family: 'Space Grotesk', Inter, sans-serif;
-        font-size: clamp(38px, 7vw, 78px);
+        font-size: clamp(38px, 5vw, 64px);
         font-weight: 700;
-        line-height: 1.02;
+        line-height: 1.0;
         letter-spacing: -0.04em;
-        margin-bottom: 22px;
+        margin-bottom: 20px;
       }
       .sp-title mark {
         background: var(--sp-lime);
@@ -213,11 +223,11 @@
         padding: 0 0.1em;
       }
       .sp-sub {
-        font-size: 17px;
-        line-height: 1.65;
+        font-size: 18px;
+        line-height: 1.7;
         color: var(--sp-muted);
-        max-width: 480px;
-        margin-bottom: 28px;
+        max-width: 500px;
+        margin-bottom: 26px;
       }
       .sp-btn {
         display: inline-block;
@@ -229,28 +239,113 @@
         border-radius: 4px;
         text-decoration: none;
       }
+      .sp-meta {
+        display: flex;
+        gap: 0;
+        margin-top: 32px;
+        border-top: 1px solid var(--sp-line);
+      }
+      .sp-meta span {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 34px 0 0;
+        margin-right: 34px;
+        border-right: 1px solid var(--sp-line);
+      }
+      .sp-meta span:last-child { border-right: 0; }
+      .sp-meta b {
+        font-family: 'Space Grotesk', Inter, sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+      }
+      .sp-meta i {
+        font-style: normal;
+        font-family: 'Space Mono', 'Courier New', monospace;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--sp-muted);
+      }
       .sp-card {
         background: #fff;
         border: 1px solid var(--sp-line);
         border-radius: 4px;
-        padding: 32px;
+        padding: 28px 26px;
         box-shadow: 10px 10px 0 #f2f2ee;
       }
       .sp-card__title {
         font-family: 'Space Grotesk', Inter, sans-serif;
         font-size: 24px;
         font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .sp-card__sub {
+        font-family: 'Space Mono', 'Courier New', monospace;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--sp-muted);
         margin-bottom: 20px;
       }
       .sp-row {
         height: 44px;
         border: 1px solid var(--sp-line);
         border-radius: 4px;
-        margin-bottom: 14px;
+        margin-bottom: 16px;
         background: #fafafa;
+      }
+      .sp-label {
+        height: 14px;
+        width: 38%;
+        background: var(--sp-line);
+        border-radius: 2px;
+        margin-bottom: 10px;
+      }
+      .sp-row--pair {
+        display: flex;
+        gap: 14px;
+        background: none;
+        border: 0;
+        height: auto;
+        margin-bottom: 14px;
+      }
+      .sp-row--pair > div {
+        flex: 1 1 0;
+      }
+      .sp-row--pair .sp-row {
+        margin-bottom: 0;
+      }
+      .sp-row--consent {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        height: 54px;
+        border: 0;
+        background: none;
+        margin-bottom: 14px;
+      }
+      .sp-row--consent::before {
+        content: '';
+        width: 18px;
+        height: 18px;
+        flex: 0 0 auto;
+        margin-top: 2px;
+        border: 1px solid var(--sp-line);
+        border-radius: 3px;
+        background: var(--sp-lime);
+      }
+      .sp-row--consent::after {
+        content: '';
+        flex: 1 1 auto;
+        height: 14px;
+        margin-top: 4px;
+        background: var(--sp-line);
+        border-radius: 3px;
       }
       .sp-row--btn {
         height: 48px;
+        margin-top: 6px;
         background: var(--sp-lime);
         border: 0;
       }
@@ -282,19 +377,29 @@
         <div class="sp-container">
           <div>
             <p class="sp-eyebrow">Gem Wealthholm - AI market intelligence</p>
-            <h1 class="sp-title">See the market with <mark>clarity</mark></h1>
+            <h1 class="sp-title">Gem Wealthholm - see the market with <mark>clarity</mark></h1>
             <p class="sp-sub">
               An AI engine that scans markets around the clock, turns dense
-              data into clear signals, and helps you act with more confidence.
+              data into clear signals, and helps you act with more confidence
+              - whatever your experience level.
             </p>
             <span class="sp-btn">Open an account</span>
+            <div class="sp-meta">
+              <span><b>24/7</b><i>Monitoring</i></span>
+              <span><b>65+</b><i>Markets</i></span>
+              <span><b>0.4s</b><i>Signal latency</i></span>
+            </div>
           </div>
           <div class="sp-card">
             <div class="sp-card__title">Join now</div>
-            <div class="sp-row"></div>
-            <div class="sp-row"></div>
-            <div class="sp-row"></div>
-            <div class="sp-row"></div>
+            <div class="sp-card__sub">Membership - free to open</div>
+            <div class="sp-row sp-row--pair">
+              <div><div class="sp-label"></div><div class="sp-row"></div></div>
+              <div><div class="sp-label"></div><div class="sp-row"></div></div>
+            </div>
+            <div class="sp-label"></div><div class="sp-row"></div>
+            <div class="sp-label"></div><div class="sp-row"></div>
+            <div class="sp-row sp-row--consent"></div>
             <div class="sp-row sp-row--btn"></div>
           </div>
         </div>
