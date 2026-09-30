@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import RegistrationForm from '../components/RegistrationForm'
 import FeatureSection from '../components/FeatureSection'
@@ -14,61 +15,21 @@ import { faqItems } from '../data/faq'
 import { markets } from '../data/markets'
 import MarketIcon from '../components/MarketIcons'
 
-export default function Home() {
+// Renders after the first paint so the hero (the LCP element) commits
+// without waiting for the whole below-fold tree.
+function DeferredHomeBody() {
+  const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => setReady(true))
+    return () => cancelAnimationFrame(raf)
+  }, [])
+
+  if (!ready) return null
+
   return (
     <>
-      {/* Hero */}
-      <section className="hero">
-        <span className="hero__ghost" aria-hidden="true">
-          WEALTHHOLM
-        </span>
-        <div className="container">
-          <div className="hero__row">
-            <div className="hero__main">
-              <p className="eyebrow">Gem Wealthholm - AI market intelligence</p>
-              <h1 className="hero__title">
-                Gem Wealthholm - see the market with <mark>clarity</mark>
-              </h1>
-              <p className="hero__subtitle">
-                An AI engine that scans markets around the clock, turns dense
-                data into clear signals, and helps you act with more confidence
-                - whatever your experience level.
-              </p>
-              <div className="hero__actions">
-                <a href="#join" className="btn btn--ink">
-                  Open an account
-                </a>
-                <Link to="/about-us" className="link-arrow">
-                  Explore the platform
-                  <ArrowRightIcon />
-                </Link>
-              </div>
-              <ul className="hero__meta">
-                <li>
-                  <span className="hero__meta-val">24/7</span>
-                  <span className="hero__meta-label">Monitoring</span>
-                </li>
-                <li>
-                  <span className="hero__meta-val">65+</span>
-                  <span className="hero__meta-label">Markets</span>
-                </li>
-                <li>
-                  <span className="hero__meta-val">0.4s</span>
-                  <span className="hero__meta-label">Signal latency</span>
-                </li>
-              </ul>
-            </div>
-            <div className="hero__side">
-              <RegistrationForm />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Live market ticker - right below the hero */}
-      <ActivityTicker />
-
-      {/* 01 - Engine */}
+      {/* 01 — Engine */}
       <FeatureSection
         paper
         eyebrow="01 - Engine"
@@ -335,6 +296,65 @@ export default function Home() {
         }
         form={<RegistrationForm idPrefix="cta" formId="cta-join" submitLabel="Start free access" />}
       />
+    </>
+  )
+}
+
+export default function Home() {
+  return (
+    <>
+      {/* Hero */}
+      <section className="hero">
+        <span className="hero__ghost" aria-hidden="true">
+          WEALTHHOLM
+        </span>
+        <div className="container">
+          <div className="hero__row">
+            <div className="hero__main">
+              <p className="eyebrow">Gem Wealthholm - AI market intelligence</p>
+              <h1 className="hero__title">
+                Gem Wealthholm - see the market with <mark>clarity</mark>
+              </h1>
+              <p className="hero__subtitle">
+                An AI engine that scans markets around the clock, turns dense
+                data into clear signals, and helps you act with more confidence
+                - whatever your experience level.
+              </p>
+              <div className="hero__actions">
+                <a href="#join" className="btn btn--ink">
+                  Open an account
+                </a>
+                <Link to="/about-us" className="link-arrow">
+                  Explore the platform
+                  <ArrowRightIcon />
+                </Link>
+              </div>
+              <ul className="hero__meta">
+                <li>
+                  <span className="hero__meta-val">24/7</span>
+                  <span className="hero__meta-label">Monitoring</span>
+                </li>
+                <li>
+                  <span className="hero__meta-val">65+</span>
+                  <span className="hero__meta-label">Markets</span>
+                </li>
+                <li>
+                  <span className="hero__meta-val">0.4s</span>
+                  <span className="hero__meta-label">Signal latency</span>
+                </li>
+              </ul>
+            </div>
+            <div className="hero__side">
+              <RegistrationForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Live market ticker - right below the hero */}
+      <ActivityTicker />
+
+      <DeferredHomeBody />
     </>
   )
 }

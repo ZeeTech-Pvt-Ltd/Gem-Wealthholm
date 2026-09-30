@@ -6,10 +6,12 @@ import utilsUrl from 'intl-tel-input/build/js/utils.js?url'
  * Phone input powered by intl-tel-input 17.0.8 - the exact widget the
  * reference sites use (flag + separate dial code, preferred countries,
  * validation utils). The library (with all country data) is loaded
- * dynamically so it stays out of the initial bundle. Visitor country
- * is geo-detected via ipwho.is and the dial code pre-selected. (The
- * reference sites call ipapi.co, but that API sends no CORS headers
- * and rejects browser requests from every non-allowlisted origin.)
+ * dynamically during a true idle period, with a first-interaction
+ * fallback - so it never extends the page's critical request chain.
+ * Visitor country is geo-detected via ipwho.is, starting in parallel
+ * with the page load. (The reference sites call ipapi.co, but that API
+ * sends no CORS headers and rejects browser requests from every
+ * non-allowlisted origin.)
  */
 export default function PhoneField({ id, name, required, placeholder, autoComplete, apiRef, invalid = false, onInput }) {
   const inputRef = useRef(null)
@@ -22,16 +24,45 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
     let cancelled = false
     let itiInstance = null
     let started = false
+    let loading = false
     let observer = null
+    let removeInteractionFallback = null
+    let geoCode = null
 
-    const init = () => {
-      if (started || destroyed) return
-      started = true
-      observer?.disconnect()
+    const fixAria = () => {
+      const flagButton = input.parentElement?.querySelector('.iti__selected-flag')
+      if (flagButton) {
+        // A11y conformance: iti v17 references list items that do not
+        // exist until the dropdown is first opened.
+        flagButton.removeAttribute('aria-activedescendant')
+        flagButton.removeAttribute('aria-owns')
+        flagButton.removeAttribute('aria-controls')
+      }
+    }
 
-      // Load the widget during an idle period so it never competes
-      // with rendering (falls back to a short delay if unsupported).
-      const load = () => import('intl-tel-input').then((mod) => {
+    // Geo lookup starts immediately, in parallel with the page load.
+    fetch('https://ipwho.is/', { signal: AbortSignal.timeout(5000) })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        const code = data?.country_code?.toLowerCase()
+        if (!cancelled && code) {
+          geoCode = code
+          if (itiInstance) {
+            itiInstance.setCountry(code)
+            fixAria()
+          }
+        }
+      })
+      .catch(() => {
+        /* keep the default country */
+      })
+
+    const loadIti = () => {
+      if (loading || destroyed) return
+      loading = true
+      removeInteractionFallback?.()
+
+      import('intl-tel-input').then((mod) => {
         if (destroyed) return
 
         const intlTelInput = mod.default || mod
@@ -45,42 +76,36 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
           utilsScript: utilsUrl,
         })
         if (apiRef) apiRef.current = itiInstance
-
-        // A11y conformance: iti v17 sets aria-activedescendant/aria-owns/
-        // aria-controls pointing at list items that do not exist in the
-        // DOM until the dropdown is first opened. Remove them up front;
-        // the library re-adds valid values once the list exists.
-        const fixAria = () => {
-          const flagButton = input.parentElement?.querySelector('.iti__selected-flag')
-          if (flagButton) {
-            flagButton.removeAttribute('aria-activedescendant')
-            flagButton.removeAttribute('aria-owns')
-            flagButton.removeAttribute('aria-controls')
-          }
-        }
         fixAria()
 
-        // Geolocate the visitor and pre-select their dial code.
-        // setCountry() re-adds the dangling ARIA references, so clean
-        // them again afterwards.
-        fetch('https://ipwho.is/', { signal: AbortSignal.timeout(5000) })
-          .then((r) => (r.ok ? r.json() : null))
-          .then((data) => {
-            const code = data?.country_code?.toLowerCase()
-            if (!cancelled && code) {
-              itiInstance?.setCountry(code)
-              fixAria()
-            }
-          })
-          .catch(() => {
-            /* keep the default country */
-          })
+        if (geoCode) {
+          itiInstance.setCountry(geoCode)
+          fixAria()
+        }
       })
+    }
 
+    const init = () => {
+      if (started || destroyed) return
+      started = true
+      observer?.disconnect()
+
+      // Wait for a genuinely idle main thread; if the user interacts
+      // with the field first, load immediately.
       if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(() => load(), { timeout: 1500 })
+        window.requestIdleCallback(loadIti)
       } else {
-        setTimeout(load, 800)
+        loadIti()
+      }
+
+      const interact = () => loadIti()
+      input.addEventListener('focus', interact, { once: true })
+      input.addEventListener('pointerdown', interact, { once: true })
+      input.addEventListener('touchstart', interact, { once: true })
+      removeInteractionFallback = () => {
+        input.removeEventListener('focus', interact)
+        input.removeEventListener('pointerdown', interact)
+        input.removeEventListener('touchstart', interact)
       }
     }
 
@@ -103,6 +128,7 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
       destroyed = true
       cancelled = true
       observer?.disconnect()
+      removeInteractionFallback?.()
       if (apiRef?.current === itiInstance) apiRef.current = null
       itiInstance?.destroy()
     }
