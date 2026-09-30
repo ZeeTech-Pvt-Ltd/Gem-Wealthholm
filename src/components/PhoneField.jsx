@@ -1,17 +1,15 @@
 import { useEffect, useRef } from 'react'
 import 'intl-tel-input/build/css/intlTelInput.css'
-import utilsUrl from 'intl-tel-input/build/js/utils.js?url'
 
 /**
  * Phone input powered by intl-tel-input 17.0.8 - the exact widget the
- * reference sites use (flag + separate dial code, preferred countries,
- * validation utils). The library (with all country data) is loaded
- * dynamically during a true idle period, with a first-interaction
- * fallback - so it never extends the page's critical request chain.
- * Visitor country is geo-detected via ipwho.is, starting in parallel
- * with the page load. (The reference sites call ipapi.co, but that API
- * sends no CORS headers and rejects browser requests from every
- * non-allowlisted origin.)
+ * reference sites use (flag + separate dial code, preferred countries).
+ * The library loads during a true idle period (with a first-interaction
+ * fallback) so it never extends the critical request chain, and the
+ * heavy validation utils.js is NOT loaded: the two helpers we need
+ * (full number + basic validity) are computed from the country data
+ * that ships inside the main library. Visitor country is geo-detected
+ * via ipwho.is, starting in parallel with the page load.
  */
 export default function PhoneField({ id, name, required, placeholder, autoComplete, apiRef, invalid = false, onInput }) {
   const inputRef = useRef(null)
@@ -28,6 +26,7 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
     let observer = null
     let removeInteractionFallback = null
     let geoCode = null
+    let api = null
 
     const fixAria = () => {
       const flagButton = input.parentElement?.querySelector('.iti__selected-flag')
@@ -70,13 +69,27 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
           separateDialCode: true,
           preferredCountries: ['gb', 'us'],
           initialCountry: 'gb',
-          // Placeholder follows the selected country's mobile format
+          // Placeholder follows the selected country's format
           autoPlaceholder: 'aggressive',
-          placeholderNumberType: 'MOBILE',
-          utilsScript: utilsUrl,
         })
-        if (apiRef) apiRef.current = itiInstance
         fixAria()
+
+        if (apiRef) {
+          // Lightweight facade instead of the 241 KB utils.js:
+          // the country data inside the library is enough for us.
+          api = {
+            getNumber: () => {
+              const country = itiInstance.getSelectedCountryData()
+              const digits = input.value.replace(/\D/g, '')
+              return country && digits ? `+${country.dialCode}${digits}` : input.value
+            },
+            isValidNumber: () => {
+              const digits = input.value.replace(/\D/g, '').length
+              return digits >= 7 && digits <= 15
+            },
+          }
+          apiRef.current = api
+        }
 
         if (geoCode) {
           itiInstance.setCountry(geoCode)
@@ -129,7 +142,7 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
       cancelled = true
       observer?.disconnect()
       removeInteractionFallback?.()
-      if (apiRef?.current === itiInstance) apiRef.current = null
+      if (apiRef?.current === api) apiRef.current = null
       itiInstance?.destroy()
     }
   }, [])
