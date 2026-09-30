@@ -144,7 +144,7 @@ mark {
   color: var(--muted);
   font-size: 17px;
   line-height: 1.75;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 /* Mono eyebrow label - "01 - ENGINE" */
@@ -318,7 +318,7 @@ mark {
 /* Forms ------------------------------------------------------------------ */
 
 .field {
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .field__label {
