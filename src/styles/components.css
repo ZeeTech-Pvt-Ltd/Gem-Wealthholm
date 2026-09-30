@@ -335,7 +335,7 @@
 
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(46px, 6.4vw, 82px);
+  font-size: clamp(38px, 5vw, 64px);
   font-weight: 700;
   line-height: 1.0;
   letter-spacing: -0.04em;
@@ -1310,7 +1310,7 @@
 
 .page-hero__title {
   font-family: var(--font-display);
-  font-size: clamp(42px, 5.6vw, 72px);
+  font-size: clamp(34px, 4.4vw, 54px);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.02;
@@ -1669,7 +1669,7 @@
   }
 
   .hero__title {
-    font-size: 46px;
+    font-size: 38px;
   }
 
   .hero__meta li {
@@ -1727,13 +1727,13 @@
   }
 
   .page-hero__title {
-    font-size: 44px;
+    font-size: 36px;
   }
 }
 
 @media (max-width: 767px) {
   .hero__title {
-    font-size: 38px;
+    font-size: 32px;
   }
 
   .hero__actions {

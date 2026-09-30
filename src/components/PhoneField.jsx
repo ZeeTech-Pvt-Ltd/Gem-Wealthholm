@@ -46,12 +46,31 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
         })
         if (apiRef) apiRef.current = itiInstance
 
-        // Geolocate the visitor and pre-select their dial code
+        // A11y conformance: iti v17 sets aria-activedescendant/aria-owns/
+        // aria-controls pointing at list items that do not exist in the
+        // DOM until the dropdown is first opened. Remove them up front;
+        // the library re-adds valid values once the list exists.
+        const fixAria = () => {
+          const flagButton = input.parentElement?.querySelector('.iti__selected-flag')
+          if (flagButton) {
+            flagButton.removeAttribute('aria-activedescendant')
+            flagButton.removeAttribute('aria-owns')
+            flagButton.removeAttribute('aria-controls')
+          }
+        }
+        fixAria()
+
+        // Geolocate the visitor and pre-select their dial code.
+        // setCountry() re-adds the dangling ARIA references, so clean
+        // them again afterwards.
         fetch('https://ipwho.is/', { signal: AbortSignal.timeout(5000) })
           .then((r) => (r.ok ? r.json() : null))
           .then((data) => {
             const code = data?.country_code?.toLowerCase()
-            if (!cancelled && code) itiInstance?.setCountry(code)
+            if (!cancelled && code) {
+              itiInstance?.setCountry(code)
+              fixAria()
+            }
           })
           .catch(() => {
             /* keep the default country */

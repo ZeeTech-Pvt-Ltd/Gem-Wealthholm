@@ -3,7 +3,7 @@ import { StarIcon, CheckIcon } from './Icons'
 
 function Stars({ rating }) {
   return (
-    <span className="testimonial__stars" aria-label={`${rating} out of 5 stars`}>
+    <span className="testimonial__stars" role="img" aria-label={`${rating} out of 5 stars`}>
       {[1, 2, 3, 4, 5].map((n) => (
         <StarIcon key={n} className={n > rating ? 'is-dim' : ''} />
       ))}
