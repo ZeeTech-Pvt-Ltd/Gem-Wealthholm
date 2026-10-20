@@ -9,6 +9,9 @@ import App from './App'
 import Home from './pages/Home'
 const About = lazy(() => import('./pages/About'))
 const Contact = lazy(() => import('./pages/Contact'))
+const Features = lazy(() => import('./pages/Features'))
+const HowItWorks = lazy(() => import('./pages/HowItWorks'))
+const Reviews = lazy(() => import('./pages/Reviews'))
 const Faq = lazy(() => import('./pages/Faq'))
 const Login = lazy(() => import('./pages/Login'))
 const Terms = lazy(() => import('./pages/Terms'))
@@ -29,6 +32,9 @@ createRoot(document.getElementById('root')).render(
             <Route path="/" element={<Home />} />
             <Route path="/about-us" element={<About />} />
             <Route path="/contact-us" element={<Contact />} />
+            <Route path="/features" element={<Features />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/reviews" element={<Reviews />} />
             <Route path="/faqs" element={<Faq />} />
             <Route path="/login" element={<Login />} />
             <Route path="/terms-of-use" element={<Terms />} />

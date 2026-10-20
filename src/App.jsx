@@ -40,6 +40,9 @@ function Canonical() {
 const BREADCRUMB_LABELS = {
   '/about-us': 'About Us',
   '/contact-us': 'Contact Us',
+  '/features': 'Features',
+  '/how-it-works': 'How It Works',
+  '/reviews': 'Reviews',
   '/faqs': 'FAQs',
   '/login': 'Access',
   '/guides': 'Guides',
@@ -67,6 +70,21 @@ const SEO_ROUTES = {
     title: 'Contact Gem Wealthholm - Support & Assistance',
     description:
       'Get in touch with the Gem Wealthholm team. Questions about the platform, your account or partnerships - we are happy to help.',
+  },
+  '/features': {
+    title: 'Gem Wealthholm Features - AI Signals, Copy Trading & Security',
+    description:
+      'Explore the Gem Wealthholm feature set: AI market scanning, real-time signals, copy trading, 24/7 monitoring and encrypted, secure channels.',
+  },
+  '/how-it-works': {
+    title: 'How Gem Wealthholm Works - Four Steps to Clarity',
+    description:
+      'How Gem Wealthholm works: open an account, make a deposit from 347 A$, let the AI engine scan markets around the clock, and withdraw whenever you like.',
+  },
+  '/reviews': {
+    title: 'Gem Wealthholm Reviews - What Members Say',
+    description:
+      'Gem Wealthholm reviews from members across Australia: honest feedback on the AI signals, copy trading, support and the withdrawal experience.',
   },
   '/faqs': {
     title: 'Gem Wealthholm FAQs - Frequently Asked Questions',
@@ -230,13 +248,15 @@ function Seo() {
 }
 
 export default function App() {
+  const { pathname } = useLocation()
+
   return (
     <>
       <ScrollToTop />
       <Canonical />
       <Seo />
       <Header />
-      <main>
+      <main className={pathname === '/' ? 'main--home' : undefined}>
         <Outlet />
       </main>
       <Footer />

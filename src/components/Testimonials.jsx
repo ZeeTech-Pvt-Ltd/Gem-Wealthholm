@@ -11,7 +11,9 @@ function Stars({ rating }) {
   )
 }
 
-export default function Testimonials() {
+export default function Testimonials({ limit }) {
+  const items = limit ? testimonials.slice(0, limit) : testimonials
+
   return (
     <>
       {/* Rating summary */}
@@ -23,7 +25,7 @@ export default function Testimonials() {
       </div>
 
       <div className="testimonials__grid">
-        {testimonials.map((t) => (
+        {items.map((t) => (
           <figure className="testimonial" key={t.name}>
             <div className="testimonial__head">
               <Stars rating={t.rating} />

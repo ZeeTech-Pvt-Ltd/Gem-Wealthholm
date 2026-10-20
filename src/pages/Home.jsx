@@ -170,6 +170,12 @@ function DeferredHomeBody() {
               ))}
             </div>
           </Reveal>
+          <Reveal>
+            <Link className="link-arrow feature__cta" to="/how-it-works">
+              See the full process
+              <ArrowRightIcon />
+            </Link>
+          </Reveal>
         </div>
       </section>
 
@@ -283,7 +289,13 @@ function DeferredHomeBody() {
             </div>
           </Reveal>
           <Reveal>
-            <Testimonials />
+            <Testimonials limit={4} />
+          </Reveal>
+          <Reveal>
+            <Link className="link-arrow feature__cta" to="/reviews">
+              Read all reviews
+              <ArrowRightIcon />
+            </Link>
           </Reveal>
         </div>
       </section>

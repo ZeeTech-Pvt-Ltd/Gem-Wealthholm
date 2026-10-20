@@ -20,6 +20,9 @@ export default function Footer() {
             <h3 className="footer__heading">Company</h3>
             <nav className="footer__links" aria-label="Footer company links">
               <Link to="/about-us">About us</Link>
+              <Link to="/features">Features</Link>
+              <Link to="/how-it-works">How it works</Link>
+              <Link to="/reviews">Reviews</Link>
               <Link to="/guides">Guides</Link>
               <Link to="/faqs">FAQ</Link>
               <Link to="/contact-us">Get in touch</Link>

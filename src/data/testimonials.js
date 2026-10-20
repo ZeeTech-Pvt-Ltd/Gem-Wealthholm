@@ -39,4 +39,36 @@ export const testimonials = [
     quote:
       'It took me a weekend to feel comfortable. The FAQ and the onboarding walk you through everything, and the platform never pushes me to deposit more than I planned.',
   },
+  {
+    name: 'Marcus R.',
+    location: 'Adelaide, AU',
+    rating: 5,
+    date: '1 month ago',
+    quote:
+      'The signal feed is the cleanest I have used. It shows what changed, why it matters, and stays out of the way. I make my own calls - the platform just makes them better informed.',
+  },
+  {
+    name: 'Elena K.',
+    location: 'Gold Coast, AU',
+    rating: 4,
+    date: '2 months ago',
+    quote:
+      'I follow one copy-trading strategy and check it each evening. Every move is logged and easy to review, and withdrawals have been straightforward both times I requested one.',
+  },
+  {
+    name: 'Tom B.',
+    location: 'Canberra, AU',
+    rating: 5,
+    date: '2 months ago',
+    quote:
+      'Setup took ten minutes and the onboarding explained everything in plain English. No pressure to deposit more than I planned, which is rare in this space.',
+  },
+  {
+    name: 'Aisha M.',
+    location: 'Darwin, AU',
+    rating: 5,
+    date: '3 months ago',
+    quote:
+      'What I appreciate most is the honesty about risk. The platform tells you what it can and cannot do, and leaves the decisions to you. That builds trust.',
+  },
 ]
