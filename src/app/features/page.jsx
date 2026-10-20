@@ -103,7 +103,7 @@ export default function Features() {
           'Insights explained in plain language',
           'Adaptive models, refreshed continuously',
         ]}
-        image="/images/feature-signals.webp"
+        image="/images/Signals you can act on.webp"
         imageAlt="Gem Wealthholm signal feed dashboard showing live market signals and chart"
       />
 
@@ -115,7 +115,6 @@ export default function Features() {
             Proven approaches, <mark>made approachable</mark>
           </>
         }
-        intro="Copy trading opens the door to strategies used by experienced market participants."
         paragraphs={[
           'You can follow established strategies and apply them in your own activity, with a clear history of every move so nothing is hidden.',
           'Review at your own pace - once a day or more often - and stay in control of how and when you act.',
@@ -125,7 +124,7 @@ export default function Features() {
           'A clear log of every move',
           'You stay in control of your activity',
         ]}
-        image="/images/feature-copy.webp"
+        image="/images/Proven approaches, made approachable.webp"
         imageAlt="Gem Wealthholm copy trading dashboard with strategy cards and move history"
         flip
         cta={{ to: '/how-it-works', label: 'See how it works' }}

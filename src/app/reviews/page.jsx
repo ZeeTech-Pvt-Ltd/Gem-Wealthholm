@@ -73,7 +73,7 @@ export default function Reviews() {
           'Copy trading with a clear log of every move',
           'No pressure - you set your own pace',
         ]}
-        image="/images/feature-trust.webp"
+        image="/images/The themes that repea.webp"
         imageAlt="Gem Wealthholm shield with the gem mark - security and trust"
       />
 

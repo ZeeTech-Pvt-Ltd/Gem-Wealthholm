@@ -50,7 +50,7 @@ export default function About() {
           'Adaptive models, not stale indicators',
           'Built for beginners and experienced users alike',
         ]}
-        image="/images/feature-protection.webp"
+        image="/images/Smarter investing, powered by technology.webp"
         imageAlt="Gem Wealthholm platform features for smarter investing with AI technology"
       />
 
@@ -110,7 +110,7 @@ export default function About() {
           'Managed access and protected data',
           'Human judgement stays at the centre',
         ]}
-        image="/images/feature-mission.webp"
+        image="/images/Control and protection, by design.webp"
         imageAlt="Gem Wealthholm security and protection for safe online investing"
         flip
       />

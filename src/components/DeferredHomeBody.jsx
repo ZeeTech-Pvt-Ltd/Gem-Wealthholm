@@ -53,7 +53,7 @@ export default function DeferredHomeBody() {
           'Adaptive models that refresh with new data',
           'Copy trading with proven approaches',
         ]}
-        image="/images/feature-engine.webp"
+        image="/images/The AI engine for market insights.webp"
         imageAlt="Gem Wealthholm AI engine dashboard showing live market analysis and trading signals"
         cta={{ to: '/about-us', label: 'Learn more about us' }}
       />
@@ -202,7 +202,7 @@ export default function DeferredHomeBody() {
           'Straightforward read on market conditions',
           'Adaptive models, refreshed continuously',
         ]}
-        image="/images/feature-analytics.webp"
+        image="/images/Clear analytics without emotion.webp"
         imageAlt="Gem Wealthholm digital investment analytics and market performance charts"
         flip
         cta={{ to: '/faqs', label: 'Read the FAQ' }}

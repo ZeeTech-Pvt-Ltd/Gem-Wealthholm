@@ -85,7 +85,7 @@ export default function HowItWorks() {
           'Signal - meaningful movement, surfaced instantly',
           'Decide - every decision stays yours',
         ]}
-        image="/images/feature-engine-flow.webp"
+        image="/images/From data to decision.webp"
         imageAlt="Gem Wealthholm AI engine flow from market scan to signal"
       />
 
@@ -107,7 +107,7 @@ export default function HowItWorks() {
           'Signals surfaced with 0.4s latency',
           'Encrypted channels for every transaction',
         ]}
-        image="/images/feature-overnight.webp"
+        image="/images/What happens while you sleep.webp"
         imageAlt="Gem Wealthholm around-the-clock monitoring with the glowing gem mark"
         flip
         cta={{ to: '/features', label: 'Explore the features' }}

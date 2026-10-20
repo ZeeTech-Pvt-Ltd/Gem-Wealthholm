@@ -563,8 +563,15 @@
 }
 
 .feature__visual--photo {
-  border-radius: 2px;
   display: block;
+  width: 100%;
+  /* Compact editorial figure: capped at 400px and centered in the
+     media column, uniform near-square crop + soft corners */
+  max-width: 400px;
+  margin-inline: auto;
+  aspect-ratio: 1.1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 .feature__cta {
