@@ -1,12 +1,19 @@
-import FeatureSection from '../components/FeatureSection'
-import CtaSection from '../components/CtaSection'
-import Reveal from '../components/Reveal'
-import RegistrationForm from '../components/RegistrationForm'
-import { stepsDetailed } from '../data/features'
+import FeatureSection from '../../components/FeatureSection'
+import CtaSection from '../../components/CtaSection'
+import Reveal from '../../components/Reveal'
+import Main from '../../components/Main'
+import SeoScripts from '../../components/SeoScripts'
+import { buildMetadata } from '../../lib/seo'
+import RegistrationForm from '../../components/RegistrationForm'
+import { stepsDetailed } from '../../data/features'
+
+export const metadata = buildMetadata('/how-it-works')
 
 export default function HowItWorks() {
   return (
-    <>
+    <Main>
+      <SeoScripts route="/how-it-works" />
+      <>
       <section className="page-hero">
         <span className="page-hero__ghost" aria-hidden="true">
           HOW
@@ -116,6 +123,7 @@ export default function HowItWorks() {
         ghostWord="HOW"
         form={<RegistrationForm idPrefix="how" formId="how-join" submitLabel="Start free access" />}
       />
-    </>
+      </>
+    </Main>
   )
 }

@@ -1,17 +1,39 @@
-import { Link, Navigate, useParams } from 'react-router-dom'
-import { getGuide, guides } from '../data/guides'
-import { ArrowRightIcon } from '../components/Icons'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
+import Main from '../../../components/Main'
+import SeoScripts from '../../../components/SeoScripts'
+import { buildMetadata } from '../../../lib/seo'
+import { getGuide, guides } from '../../../data/guides'
+import { ArrowRightIcon } from '../../../components/Icons'
 
-export default function Guide() {
-  const { slug } = useParams()
+export function generateStaticParams() {
+  return guides.map((g) => ({ slug: g.slug }))
+}
+
+// Unknown slugs 404 at the edge instead of hitting the server renderer.
+export const dynamicParams = false
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params
+  const guide = getGuide(slug)
+  if (!guide) return {}
+  return buildMetadata(`/guides/${slug}`, {
+    title: guide.seoTitle,
+    description: guide.seoDescription,
+  })
+}
+
+export default async function GuidePage({ params }) {
+  const { slug } = await params
   const guide = getGuide(slug)
 
-  if (!guide) return <Navigate to="/guides" replace />
+  if (!guide) notFound()
 
   const next = guides[guides.indexOf(guide) + 1]
 
   return (
-    <>
+    <Main>
+      <SeoScripts route={`/guides/${guide.slug}`} name={guide.title} />
       <section className="page-hero">
         <span className="page-hero__ghost" aria-hidden="true">
           GUIDE
@@ -51,12 +73,12 @@ export default function Guide() {
 
             <div className="guide-next">
               {next ? (
-                <Link className="link-arrow" to={`/guides/${next.slug}`}>
+                <Link className="link-arrow" href={`/guides/${next.slug}`}>
                   Next: {next.title}
                   <ArrowRightIcon />
                 </Link>
               ) : (
-                <Link className="link-arrow" to="/guides">
+                <Link className="link-arrow" href="/guides">
                   Back to all guides
                   <ArrowRightIcon />
                 </Link>
@@ -65,6 +87,6 @@ export default function Guide() {
           </div>
         </div>
       </section>
-    </>
+    </Main>
   )
 }

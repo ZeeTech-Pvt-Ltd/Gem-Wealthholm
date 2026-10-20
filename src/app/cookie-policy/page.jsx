@@ -1,4 +1,7 @@
-import LegalDoc from '../components/LegalDoc'
+import LegalDoc from '../../components/LegalDoc'
+import Main from '../../components/Main'
+import SeoScripts from '../../components/SeoScripts'
+import { buildMetadata } from '../../lib/seo'
 
 // Template legal text - have qualified counsel review before launch.
 const sections = [
@@ -53,19 +56,24 @@ const sections = [
   },
 ]
 
+export const metadata = buildMetadata('/cookie-policy')
+
 export default function Cookies() {
   return (
-    <LegalDoc
-      eyebrow="08 - Legal"
-      title={
-        <>
-          Cookie <mark>Policy</mark>
-        </>
-      }
-      ghost="COOKIES"
-      intro="How we use cookies and similar technologies, and how you can manage them."
-      updated="31 August 2026"
-      sections={sections}
-    />
+    <Main>
+      <SeoScripts route="/cookie-policy" />
+      <LegalDoc
+        eyebrow="08 - Legal"
+        title={
+          <>
+            Cookie <mark>Policy</mark>
+          </>
+        }
+        ghost="COOKIES"
+        intro="How we use cookies and similar technologies, and how you can manage them."
+        updated="31 August 2026"
+        sections={sections}
+      />
+    </Main>
   )
 }

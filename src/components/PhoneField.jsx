@@ -1,5 +1,6 @@
+'use client'
+
 import { useEffect, useRef } from 'react'
-import 'intl-tel-input/build/css/intlTelInput.css'
 
 /**
  * Phone input powered by intl-tel-input 17.0.8 - the exact widget the

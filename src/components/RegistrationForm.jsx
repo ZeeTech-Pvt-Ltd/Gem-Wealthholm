@@ -1,5 +1,8 @@
+'use client'
+
 import { useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import PhoneField from './PhoneField'
 
 const ENDPOINT = 'https://quantryxtech.com/homeMailAction.php'
@@ -15,7 +18,7 @@ export default function RegistrationForm({ idPrefix = 'reg', formId = 'join', su
   const [phoneError, setPhoneError] = useState(null)
   const [sending, setSending] = useState(false)
   const phoneApiRef = useRef(null)
-  const navigate = useNavigate()
+  const router = useRouter()
 
   const f = (name) => `${idPrefix}-${name}`
 
@@ -25,7 +28,7 @@ export default function RegistrationForm({ idPrefix = 'reg', formId = 'join', su
 
     // Honeypot filled - silently pretend success for the bot
     if (form.website.value) {
-      navigate('/thank-you')
+      router.push('/thank-you')
       return
     }
 
@@ -55,7 +58,8 @@ export default function RegistrationForm({ idPrefix = 'reg', formId = 'join', su
       })
       const data = await res.json().catch(() => null)
       if (data?.status === 'success') {
-        navigate('/thank-you', { state: { name: form.first_name.value.trim() } })
+        const name = form.first_name.value.trim()
+        router.push(`/thank-you?name=${encodeURIComponent(name)}`)
       } else {
         setError(data?.message || 'Something went wrong. Please try again.')
       }
@@ -158,8 +162,8 @@ export default function RegistrationForm({ idPrefix = 'reg', formId = 'join', su
             defaultChecked
           />
           <label className="field__consent-label" htmlFor={f('consent')}>
-            I have read and agree to the <Link to="/privacy-policy">Privacy Policy</Link>{' '}
-            and <Link to="/terms-of-use">Terms &amp; Conditions</Link>.
+            I have read and agree to the <Link href="/privacy-policy">Privacy Policy</Link>{' '}
+            and <Link href="/terms-of-use">Terms &amp; Conditions</Link>.
           </label>
         </div>
 

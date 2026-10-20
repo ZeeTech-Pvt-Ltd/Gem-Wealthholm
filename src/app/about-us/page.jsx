@@ -1,13 +1,20 @@
-import FeatureSection from '../components/FeatureSection'
-import Reveal from '../components/Reveal'
-import { values } from '../data/features'
-import { ShieldIcon, EyeIcon, SparkIcon } from '../components/Icons'
+import FeatureSection from '../../components/FeatureSection'
+import Reveal from '../../components/Reveal'
+import Main from '../../components/Main'
+import SeoScripts from '../../components/SeoScripts'
+import { buildMetadata } from '../../lib/seo'
+import { values } from '../../data/features'
+import { ShieldIcon, EyeIcon, SparkIcon } from '../../components/Icons'
 
 const valueIcons = { shield: ShieldIcon, eye: EyeIcon, spark: SparkIcon }
 
+export const metadata = buildMetadata('/about-us')
+
 export default function About() {
   return (
-    <>
+    <Main>
+      <SeoScripts route="/about-us" />
+      <>
       <section className="page-hero">
         <span className="page-hero__ghost" aria-hidden="true">
           ABOUT
@@ -107,6 +114,7 @@ export default function About() {
         imageAlt="Gem Wealthholm security and protection for safe online investing"
         flip
       />
-    </>
+      </>
+    </Main>
   )
 }

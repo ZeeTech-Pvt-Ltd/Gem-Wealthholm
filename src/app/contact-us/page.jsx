@@ -1,7 +1,10 @@
-import { Link } from 'react-router-dom'
-import RegistrationForm from '../components/RegistrationForm'
-import Reveal from '../components/Reveal'
-import { MailIcon, PinIcon, ClockIcon } from '../components/Icons'
+import Link from 'next/link'
+import RegistrationForm from '../../components/RegistrationForm'
+import Reveal from '../../components/Reveal'
+import Main from '../../components/Main'
+import SeoScripts from '../../components/SeoScripts'
+import { buildMetadata } from '../../lib/seo'
+import { MailIcon, PinIcon, ClockIcon } from '../../components/Icons'
 
 const contactCards = [
   {
@@ -21,9 +24,13 @@ const contactCards = [
   },
 ]
 
+export const metadata = buildMetadata('/contact-us')
+
 export default function Contact() {
   return (
-    <>
+    <Main>
+      <SeoScripts route="/contact-us" />
+      <>
       <section className="page-hero">
         <span className="page-hero__ghost" aria-hidden="true">
           HELLO
@@ -49,7 +56,7 @@ export default function Contact() {
                 Before you write, a quick tip: the most common questions about
                 the Gem Wealthholm platform - accounts, security, deposits and
                 withdrawals - are already answered in our{' '}
-                <Link to="/faqs" className="contact-card__link">
+                <Link href="/faqs" className="contact-card__link">
                   FAQ
                 </Link>
                 . If you still need help, our team replies within one business
@@ -76,6 +83,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
-    </>
+      </>
+    </Main>
   )
 }

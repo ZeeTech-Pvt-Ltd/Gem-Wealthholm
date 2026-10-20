@@ -1,23 +1,34 @@
+'use client'
+
 import { useState, useEffect } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import GemLogo from './GemLogo'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
-  const { pathname } = useLocation()
+  const pathname = usePathname()
 
   // Close the mobile menu whenever the route changes
   useEffect(() => {
     setOpen(false)
   }, [pathname])
 
-  const navClass = ({ isActive }) =>
-    `header__link${isActive ? ' header__link--active' : ''}`
+  // Segment-boundary active check (like React Router's NavLink):
+  // /about-us matches "About us", /about-us2 does not.
+  const isActive = (path) =>
+    pathname === null
+      ? false
+      : path === '/'
+        ? pathname === '/'
+        : pathname === path || pathname.startsWith(path + '/')
+
+  const navClass = (path) => `header__link${isActive(path) ? ' header__link--active' : ''}`
 
   return (
     <header className="header">
       <div className="container header__inner">
-        <Link to="/" aria-label="Gem Wealthholm - home">
+        <Link href="/" aria-label="Gem Wealthholm - home">
           <GemLogo />
         </Link>
 
@@ -33,30 +44,30 @@ export default function Header() {
         </button>
 
         <nav className={`header__nav${open ? ' is-open' : ''}`} aria-label="Main navigation">
-          <NavLink to="/" end className={navClass}>
+          <Link href="/" className={navClass('/')}>
             Home
-          </NavLink>
-          <NavLink to="/about-us" className={navClass}>
+          </Link>
+          <Link href="/about-us" className={navClass('/about-us')}>
             About us
-          </NavLink>
-          <NavLink to="/how-it-works" className={navClass}>
+          </Link>
+          <Link href="/how-it-works" className={navClass('/how-it-works')}>
             How it works
-          </NavLink>
-          <NavLink to="/features" className={navClass}>
+          </Link>
+          <Link href="/features" className={navClass('/features')}>
             Features
-          </NavLink>
-          <NavLink to="/reviews" className={navClass}>
+          </Link>
+          <Link href="/reviews" className={navClass('/reviews')}>
             Reviews
-          </NavLink>
-          <NavLink to="/contact-us" className={navClass}>
+          </Link>
+          <Link href="/contact-us" className={navClass('/contact-us')}>
             Contact us
-          </NavLink>
-          <NavLink to="/faqs" className={navClass}>
+          </Link>
+          <Link href="/faqs" className={navClass('/faqs')}>
             FAQ
-          </NavLink>
-          <NavLink to="/login" className={`header__link header__cta btn btn--ink`}>
+          </Link>
+          <Link href="/login" className="header__link header__cta btn btn--ink">
             Sign up
-          </NavLink>
+          </Link>
         </nav>
       </div>
     </header>

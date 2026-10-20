@@ -1,4 +1,7 @@
-import LegalDoc from '../components/LegalDoc'
+import LegalDoc from '../../components/LegalDoc'
+import Main from '../../components/Main'
+import SeoScripts from '../../components/SeoScripts'
+import { buildMetadata } from '../../lib/seo'
 
 // Template legal text - have qualified counsel review before launch.
 const sections = [
@@ -98,19 +101,24 @@ const sections = [
   },
 ]
 
+export const metadata = buildMetadata('/privacy-policy')
+
 export default function Privacy() {
   return (
-    <LegalDoc
-      eyebrow="06 - Legal"
-      title={
-        <>
-          Privacy <mark>Notice</mark>
-        </>
-      }
-      ghost="PRIVACY"
-      intro="How Gem Wealthholm collects, uses, and protects your personal information."
-      updated="31 August 2026"
-      sections={sections}
-    />
+    <Main>
+      <SeoScripts route="/privacy-policy" />
+      <LegalDoc
+        eyebrow="06 - Legal"
+        title={
+          <>
+            Privacy <mark>Notice</mark>
+          </>
+        }
+        ghost="PRIVACY"
+        intro="How Gem Wealthholm collects, uses, and protects your personal information."
+        updated="31 August 2026"
+        sections={sections}
+      />
+    </Main>
   )
 }

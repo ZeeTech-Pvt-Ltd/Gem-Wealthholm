@@ -1,4 +1,7 @@
-import LegalDoc from '../components/LegalDoc'
+import LegalDoc from '../../components/LegalDoc'
+import Main from '../../components/Main'
+import SeoScripts from '../../components/SeoScripts'
+import { buildMetadata } from '../../lib/seo'
 
 // Template legal text - have qualified counsel review before launch.
 const sections = [
@@ -90,19 +93,24 @@ const sections = [
   },
 ]
 
+export const metadata = buildMetadata('/terms-of-use')
+
 export default function Terms() {
   return (
-    <LegalDoc
-      eyebrow="05 - Legal"
-      title={
-        <>
-          Terms of <mark>Use</mark>
-        </>
-      }
-      ghost="LEGAL"
-      intro="The rules that govern your use of the Gem Wealthholm platform."
-      updated="31 August 2026"
-      sections={sections}
-    />
+    <Main>
+      <SeoScripts route="/terms-of-use" />
+      <LegalDoc
+        eyebrow="05 - Legal"
+        title={
+          <>
+            Terms of <mark>Use</mark>
+          </>
+        }
+        ghost="LEGAL"
+        intro="The rules that govern your use of the Gem Wealthholm platform."
+        updated="31 August 2026"
+        sections={sections}
+      />
+    </Main>
   )
 }

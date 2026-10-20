@@ -1,11 +1,18 @@
-import Accordion from '../components/Accordion'
-import CtaSection from '../components/CtaSection'
-import Reveal from '../components/Reveal'
-import { faqItems } from '../data/faq'
+import Accordion from '../../components/Accordion'
+import CtaSection from '../../components/CtaSection'
+import Reveal from '../../components/Reveal'
+import Main from '../../components/Main'
+import SeoScripts from '../../components/SeoScripts'
+import { buildMetadata } from '../../lib/seo'
+import { faqItems } from '../../data/faq'
+
+export const metadata = buildMetadata('/faqs')
 
 export default function Faq() {
   return (
-    <>
+    <Main>
+      <SeoScripts route="/faqs" />
+      <>
       <section className="page-hero">
         <span className="page-hero__ghost" aria-hidden="true">
           FAQ
@@ -39,6 +46,7 @@ export default function Faq() {
         text="Our team is happy to help. Reach out through the contact page and we'll get back to you as quickly as possible."
         ghostWord="Q?"
       />
-    </>
+      </>
+    </Main>
   )
 }

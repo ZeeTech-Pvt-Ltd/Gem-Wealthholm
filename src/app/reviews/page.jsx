@@ -1,11 +1,18 @@
-import FeatureSection from '../components/FeatureSection'
-import CtaSection from '../components/CtaSection'
-import Reveal from '../components/Reveal'
-import Testimonials from '../components/Testimonials'
+import FeatureSection from '../../components/FeatureSection'
+import CtaSection from '../../components/CtaSection'
+import Reveal from '../../components/Reveal'
+import Main from '../../components/Main'
+import SeoScripts from '../../components/SeoScripts'
+import { buildMetadata } from '../../lib/seo'
+import Testimonials from '../../components/Testimonials'
+
+export const metadata = buildMetadata('/reviews')
 
 export default function Reviews() {
   return (
-    <>
+    <Main>
+      <SeoScripts route="/reviews" />
+      <>
       <section className="page-hero">
         <span className="page-hero__ghost" aria-hidden="true">
           REVIEWS
@@ -78,6 +85,7 @@ export default function Reviews() {
         }
         ghostWord="4.8"
       />
-    </>
+      </>
+    </Main>
   )
 }

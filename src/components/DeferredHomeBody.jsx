@@ -1,23 +1,28 @@
+'use client'
+
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import RegistrationForm from '../components/RegistrationForm'
-import FeatureSection from '../components/FeatureSection'
-import Accordion from '../components/Accordion'
-import IntelligenceGrid from '../components/IntelligenceGrid'
-import Testimonials from '../components/Testimonials'
-import CtaSection from '../components/CtaSection'
-import ActivityTicker from '../components/ActivityTicker'
-import Reveal from '../components/Reveal'
-import CountUp from '../components/CountUp'
-import { ArrowRightIcon } from '../components/Icons'
+import Link from 'next/link'
+import RegistrationForm from './RegistrationForm'
+import FeatureSection from './FeatureSection'
+import Accordion from './Accordion'
+import IntelligenceGrid from './IntelligenceGrid'
+import Testimonials from './Testimonials'
+import CtaSection from './CtaSection'
+import Reveal from './Reveal'
+import CountUp from './CountUp'
+import { ArrowRightIcon } from './Icons'
 import { accordionItems, steps } from '../data/features'
 import { faqItems } from '../data/faq'
 import { markets } from '../data/markets'
-import MarketIcon from '../components/MarketIcons'
+import MarketIcon from './MarketIcons'
 
-// Renders after the first paint so the hero (the LCP element) commits
-// without waiting for the whole below-fold tree.
-function DeferredHomeBody() {
+/**
+ * Below-the-fold home content. Renders after the first paint so the
+ * hero (the LCP element) commits without waiting for the whole
+ * below-fold tree (server-renders as null, hydrates, then appears
+ * after a rAF - the .main--home guard keeps the footer out of view).
+ */
+export default function DeferredHomeBody() {
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
@@ -171,7 +176,7 @@ function DeferredHomeBody() {
             </div>
           </Reveal>
           <Reveal>
-            <Link className="link-arrow feature__cta" to="/how-it-works">
+            <Link className="link-arrow feature__cta" href="/how-it-works">
               See the full process
               <ArrowRightIcon />
             </Link>
@@ -260,7 +265,7 @@ function DeferredHomeBody() {
             <Accordion items={faqItems.slice(0, 6)} defaultOpen={-1} />
           </Reveal>
           <Reveal>
-            <Link className="link-arrow feature__cta" to="/faqs">
+            <Link className="link-arrow feature__cta" href="/faqs">
               Read the full FAQ
               <ArrowRightIcon />
             </Link>
@@ -292,7 +297,7 @@ function DeferredHomeBody() {
             <Testimonials limit={4} />
           </Reveal>
           <Reveal>
-            <Link className="link-arrow feature__cta" to="/reviews">
+            <Link className="link-arrow feature__cta" href="/reviews">
               Read all reviews
               <ArrowRightIcon />
             </Link>
@@ -308,65 +313,6 @@ function DeferredHomeBody() {
         }
         form={<RegistrationForm idPrefix="cta" formId="cta-join" submitLabel="Start free access" />}
       />
-    </>
-  )
-}
-
-export default function Home() {
-  return (
-    <>
-      {/* Hero */}
-      <section className="hero">
-        <span className="hero__ghost" aria-hidden="true">
-          WEALTHHOLM
-        </span>
-        <div className="container">
-          <div className="hero__row">
-            <div className="hero__main">
-              <p className="eyebrow">Gem Wealthholm - AI market intelligence</p>
-              <h1 className="hero__title">
-                Gem Wealthholm - see the market with <mark>clarity</mark>
-              </h1>
-              <p className="hero__subtitle">
-                An AI engine that scans markets around the clock, turns dense
-                data into clear signals, and helps you act with more confidence
-                - whatever your experience level.
-              </p>
-              <div className="hero__actions">
-                <a href="#join" className="btn btn--ink">
-                  Open an account
-                </a>
-                <Link to="/about-us" className="link-arrow">
-                  Explore the platform
-                  <ArrowRightIcon />
-                </Link>
-              </div>
-              <ul className="hero__meta">
-                <li>
-                  <span className="hero__meta-val">24/7</span>
-                  <span className="hero__meta-label">Monitoring</span>
-                </li>
-                <li>
-                  <span className="hero__meta-val">65+</span>
-                  <span className="hero__meta-label">Markets</span>
-                </li>
-                <li>
-                  <span className="hero__meta-val">0.4s</span>
-                  <span className="hero__meta-label">Signal latency</span>
-                </li>
-              </ul>
-            </div>
-            <div className="hero__side">
-              <RegistrationForm />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Live market ticker - right below the hero */}
-      <ActivityTicker />
-
-      <DeferredHomeBody />
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import Reveal from './Reveal'
 import { ArrowRightIcon } from './Icons'
 
@@ -23,7 +23,7 @@ export default function CtaSection({
                 <h2 className="cta-banner__title">{title}</h2>
                 <p className="cta-banner__text">{text}</p>
                 <div className="cta-banner__actions">
-                  <Link className="btn btn--ghost-light" to="/contact-us">
+                  <Link className="btn btn--ghost-light" href="/contact-us">
                     Contact support
                     <ArrowRightIcon />
                   </Link>
@@ -37,10 +37,10 @@ export default function CtaSection({
               <h2 className="cta-banner__title">{title}</h2>
               <p className="cta-banner__text">{text}</p>
               <div className="cta-banner__actions">
-                <Link className="btn btn--lime" to="/#join">
+                <Link className="btn btn--lime" href="/#join">
                   Open an account
                 </Link>
-                <Link className="btn btn--ghost-light" to="/contact-us">
+                <Link className="btn btn--ghost-light" href="/contact-us">
                   Contact support
                   <ArrowRightIcon />
                 </Link>

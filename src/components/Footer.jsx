@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import GemLogo from './GemLogo'
 import { MailIcon, PinIcon } from './Icons'
 
@@ -19,23 +19,23 @@ export default function Footer() {
           <div>
             <h3 className="footer__heading">Company</h3>
             <nav className="footer__links" aria-label="Footer company links">
-              <Link to="/about-us">About us</Link>
-              <Link to="/features">Features</Link>
-              <Link to="/how-it-works">How it works</Link>
-              <Link to="/reviews">Reviews</Link>
-              <Link to="/guides">Guides</Link>
-              <Link to="/faqs">FAQ</Link>
-              <Link to="/contact-us">Get in touch</Link>
+              <Link href="/about-us">About us</Link>
+              <Link href="/features">Features</Link>
+              <Link href="/how-it-works">How it works</Link>
+              <Link href="/reviews">Reviews</Link>
+              <Link href="/guides">Guides</Link>
+              <Link href="/faqs">FAQ</Link>
+              <Link href="/contact-us">Get in touch</Link>
             </nav>
           </div>
 
           <div>
             <h3 className="footer__heading">Legal</h3>
             <nav className="footer__links" aria-label="Footer legal links">
-              <Link to="/terms-of-use">Terms of Use</Link>
-              <Link to="/privacy-policy">Privacy Notice</Link>
-              <Link to="/risk-disclosure">Risk Disclosure</Link>
-              <Link to="/cookie-policy">Cookie Policy</Link>
+              <Link href="/terms-of-use">Terms of Use</Link>
+              <Link href="/privacy-policy">Privacy Notice</Link>
+              <Link href="/risk-disclosure">Risk Disclosure</Link>
+              <Link href="/cookie-policy">Cookie Policy</Link>
             </nav>
           </div>
 
@@ -60,10 +60,10 @@ export default function Footer() {
               © {new Date().getFullYear()} GEM WEALTHHOLM - ALL RIGHTS RESERVED
             </span>
             <nav className="footer__legal" aria-label="Footer legal">
-              <Link to="/terms-of-use">Terms</Link>
-              <Link to="/privacy-policy">Privacy</Link>
-              <Link to="/risk-disclosure">Risk</Link>
-              <Link to="/cookie-policy">Cookies</Link>
+              <Link href="/terms-of-use">Terms</Link>
+              <Link href="/privacy-policy">Privacy</Link>
+              <Link href="/risk-disclosure">Risk</Link>
+              <Link href="/cookie-policy">Cookies</Link>
             </nav>
           </div>
           <p className="footer__disclaimer">

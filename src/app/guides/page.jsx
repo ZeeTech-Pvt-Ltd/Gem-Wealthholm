@@ -1,11 +1,18 @@
-import { Link } from 'react-router-dom'
-import Reveal from '../components/Reveal'
-import { guides } from '../data/guides'
-import { ArrowRightIcon } from '../components/Icons'
+import Link from 'next/link'
+import Reveal from '../../components/Reveal'
+import Main from '../../components/Main'
+import SeoScripts from '../../components/SeoScripts'
+import { buildMetadata } from '../../lib/seo'
+import { guides } from '../../data/guides'
+import { ArrowRightIcon } from '../../components/Icons'
+
+export const metadata = buildMetadata('/guides')
 
 export default function Guides() {
   return (
-    <>
+    <Main>
+      <SeoScripts route="/guides" />
+      <>
       <section className="page-hero">
         <span className="page-hero__ghost" aria-hidden="true">
           GUIDES
@@ -28,7 +35,7 @@ export default function Guides() {
           <Reveal>
             <div className="guides-list">
               {guides.map((guide, i) => (
-                <Link className="guides-list__item" to={`/guides/${guide.slug}`} key={guide.slug}>
+                <Link className="guides-list__item" href={`/guides/${guide.slug}`} key={guide.slug}>
                   <span className="guides-list__num">{String(i + 1).padStart(2, '0')}</span>
                   <span className="guides-list__body">
                     <span className="guides-list__title">{guide.title}</span>
@@ -43,6 +50,7 @@ export default function Guides() {
           </Reveal>
         </div>
       </section>
-    </>
+      </>
+    </Main>
   )
 }

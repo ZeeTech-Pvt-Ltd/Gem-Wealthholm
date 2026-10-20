@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import GemVisual from './GemVisual'
 import Reveal from './Reveal'
 import { ArrowRightIcon } from './Icons'
@@ -64,7 +64,7 @@ export default function FeatureSection({
               </ul>
             )}
             {cta && (
-              <Link className="link-arrow feature__cta" to={cta.to}>
+              <Link className="link-arrow feature__cta" href={cta.to}>
                 {cta.label}
                 <ArrowRightIcon />
               </Link>

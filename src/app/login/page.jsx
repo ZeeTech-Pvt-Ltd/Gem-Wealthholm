@@ -1,6 +1,9 @@
-import { Link } from 'react-router-dom'
-import RegistrationForm from '../components/RegistrationForm'
-import { CheckIcon } from '../components/Icons'
+import Link from 'next/link'
+import RegistrationForm from '../../components/RegistrationForm'
+import Main from '../../components/Main'
+import SeoScripts from '../../components/SeoScripts'
+import { buildMetadata } from '../../lib/seo'
+import { CheckIcon } from '../../components/Icons'
 
 const perks = [
   'Real-time market scanning around the clock',
@@ -9,9 +12,13 @@ const perks = [
   'Secure, encrypted channels for every transaction',
 ]
 
+export const metadata = buildMetadata('/login')
+
 export default function Login() {
   return (
-    <div className="login-wrap">
+    <Main>
+      <SeoScripts route="/login" />
+      <div className="login-wrap">
       <div className="container">
         <div className="login-card">
           <p className="eyebrow">04 - Access</p>
@@ -33,11 +40,12 @@ export default function Login() {
           </ul>
           <p className="login-perks__more">
             Want to know more first?{' '}
-            <Link to="/guides">Read the Gem Wealthholm guides</Link> or{' '}
-            <Link to="/faqs">visit the FAQ</Link>.
+            <Link href="/guides">Read the Gem Wealthholm guides</Link> or{' '}
+            <Link href="/faqs">visit the FAQ</Link>.
           </p>
         </div>
       </div>
-    </div>
+      </div>
+    </Main>
   )
 }

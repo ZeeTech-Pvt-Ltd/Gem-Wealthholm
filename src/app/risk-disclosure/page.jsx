@@ -1,4 +1,7 @@
-import LegalDoc from '../components/LegalDoc'
+import LegalDoc from '../../components/LegalDoc'
+import Main from '../../components/Main'
+import SeoScripts from '../../components/SeoScripts'
+import { buildMetadata } from '../../lib/seo'
 
 // Template legal text - have qualified counsel review before launch.
 const sections = [
@@ -64,19 +67,24 @@ const sections = [
   },
 ]
 
+export const metadata = buildMetadata('/risk-disclosure')
+
 export default function RiskDisclosure() {
   return (
-    <LegalDoc
-      eyebrow="07 - Legal"
-      title={
-        <>
-          Risk <mark>Disclosure</mark>
-        </>
-      }
-      ghost="RISK"
-      intro="The risks you should understand before using the Gem Wealthholm platform."
-      updated="31 August 2026"
-      sections={sections}
-    />
+    <Main>
+      <SeoScripts route="/risk-disclosure" />
+      <LegalDoc
+        eyebrow="07 - Legal"
+        title={
+          <>
+            Risk <mark>Disclosure</mark>
+          </>
+        }
+        ghost="RISK"
+        intro="The risks you should understand before using the Gem Wealthholm platform."
+        updated="31 August 2026"
+        sections={sections}
+      />
+    </Main>
   )
 }

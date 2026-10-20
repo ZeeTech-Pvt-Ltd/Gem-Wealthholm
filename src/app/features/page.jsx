@@ -1,7 +1,10 @@
-import FeatureSection from '../components/FeatureSection'
-import CtaSection from '../components/CtaSection'
-import Reveal from '../components/Reveal'
-import { platformFeatures } from '../data/features'
+import FeatureSection from '../../components/FeatureSection'
+import CtaSection from '../../components/CtaSection'
+import Reveal from '../../components/Reveal'
+import Main from '../../components/Main'
+import SeoScripts from '../../components/SeoScripts'
+import { buildMetadata } from '../../lib/seo'
+import { platformFeatures } from '../../data/features'
 import {
   ShieldIcon,
   EyeIcon,
@@ -9,7 +12,7 @@ import {
   ClockIcon,
   CheckIcon,
   CardsIcon,
-} from '../components/Icons'
+} from '../../components/Icons'
 
 const featureIcons = {
   spark: SparkIcon,
@@ -20,9 +23,13 @@ const featureIcons = {
   cards: CardsIcon,
 }
 
+export const metadata = buildMetadata('/features')
+
 export default function Features() {
   return (
-    <>
+    <Main>
+      <SeoScripts route="/features" />
+      <>
       <section className="page-hero">
         <span className="page-hero__ghost" aria-hidden="true">
           FEATURES
@@ -132,6 +139,7 @@ export default function Features() {
         }
         ghostWord="AI"
       />
-    </>
+      </>
+    </Main>
   )
 }
