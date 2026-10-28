@@ -5,7 +5,7 @@ export const guides = [
   {
     slug: 'gem-wealthholm-review',
     title: 'Gem Wealthholm Review - Is It Right for You?',
-    seoTitle: 'Gem Wealthholm Review - Features, Pros & How It Works',
+    seoTitle: 'Gem Wealthholm Review - Pros & How It Works',
     seoDescription:
       'An honest Gem Wealthholm review: how the AI market analysis works, key features, who it suits, and what to know before you open an account.',
     date: '1 September 2026',
@@ -120,7 +120,7 @@ export const guides = [
   {
     slug: 'gem-wealthholm-deposits-withdrawals',
     title: 'Gem Wealthholm Deposits & Withdrawals Explained',
-    seoTitle: 'Gem Wealthholm Deposits & Withdrawals - Fees & Methods',
+    seoTitle: 'Gem Wealthholm Deposits & Withdrawals Guide',
     seoDescription:
       'How deposits and withdrawals work on Gem Wealthholm: minimum amounts, payment methods, processing and what you need to know before moving funds.',
     date: '1 September 2026',

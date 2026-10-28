@@ -8,9 +8,10 @@ export default function CtaSection({
   text = 'Join Gem Wealthholm today and let AI-powered insights help you make more informed decisions - around the clock.',
   ghostWord = 'GW',
   form = null,
+  center = false,
 }) {
   return (
-    <section className="cta-banner">
+    <section className={`cta-banner${center ? ' cta-banner--center' : ''}`}>
       <span className="cta-banner__ghost" aria-hidden="true">
         {ghostWord}
       </span>

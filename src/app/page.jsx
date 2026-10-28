@@ -1,11 +1,17 @@
-import Link from 'next/link'
 import Main from '../components/Main'
 import SeoScripts from '../components/SeoScripts'
 import DeferredHomeBody from '../components/DeferredHomeBody'
 import ActivityTicker from '../components/ActivityTicker'
 import RegistrationForm from '../components/RegistrationForm'
 import { buildMetadata } from '../lib/seo'
-import { ArrowRightIcon } from '../components/Icons'
+import { CardsIcon, SparkIcon, ShieldIcon, ClockIcon } from '../components/Icons'
+
+const trustItems = [
+  { icon: CardsIcon, title: 'Start from 347 A$', text: 'A small, sensible first step' },
+  { icon: SparkIcon, title: 'No app needed', text: 'Works in any web browser' },
+  { icon: ShieldIcon, title: 'Bank-level encryption', text: 'Your details stay protected' },
+  { icon: ClockIcon, title: 'Support on Aussie hours', text: 'Real help when you need it' },
+]
 
 export const metadata = buildMetadata('/')
 
@@ -21,23 +27,19 @@ export default function Home() {
         <div className="container">
           <div className="hero__row">
             <div className="hero__main">
-              <p className="eyebrow">Gem Wealthholm - AI market intelligence</p>
+              <p className="eyebrow">Made for Australia</p>
               <h1 className="hero__title">
-                Gem Wealthholm - see the market with <mark>clarity</mark>
+                The AI Trading Platform Australia Can <mark>Count On</mark>
               </h1>
               <p className="hero__subtitle">
-                An AI engine that scans markets around the clock, turns dense
-                data into clear signals, and helps you act with more confidence
-                - whatever your experience level.
+                A straightforward AI trading platform for Australians. It
+                studies the markets, highlights opportunities, and leaves the
+                final call to you.
               </p>
               <div className="hero__actions">
                 <a href="#join" className="btn btn--ink">
                   Open an account
                 </a>
-                <Link href="/about-us" className="link-arrow">
-                  Explore the platform
-                  <ArrowRightIcon />
-                </Link>
               </div>
               <ul className="hero__meta">
                 <li>
@@ -55,7 +57,12 @@ export default function Home() {
               </ul>
             </div>
             <div className="hero__side">
-              <RegistrationForm />
+              <RegistrationForm
+                title="Create Your Free Account"
+                sub="Free sign-up - takes under 2 minutes"
+                submitLabel="Get Started Free"
+                note="Free sign-up · Takes under 2 minutes · Secure registration"
+              />
             </div>
           </div>
         </div>
@@ -63,6 +70,28 @@ export default function Home() {
 
       {/* Live market ticker - right below the hero */}
       <ActivityTicker />
+
+      {/* Trust strip */}
+      <section className="trust-strip" aria-label="Why Gem Wealthholm">
+        <div className="container">
+          <div className="trust-strip__grid">
+            {trustItems.map((item) => {
+              const Icon = item.icon
+              return (
+                <div className="trust-strip__item" key={item.title}>
+                  <span className="trust-strip__icon">
+                    <Icon />
+                  </span>
+                  <span className="trust-strip__text">
+                    <b>{item.title}</b>
+                    {item.text}
+                  </span>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
 
       <DeferredHomeBody />
     </Main>

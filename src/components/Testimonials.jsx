@@ -35,10 +35,14 @@ export default function Testimonials({ limit }) {
             <figcaption className="testimonial__foot">
               <span className="testimonial__person">
                 <span className="testimonial__avatar" aria-hidden="true">
-                  {t.name
-                    .split(' ')
-                    .map((part) => part[0])
-                    .join('')}
+                  {t.image ? (
+                    <img src={t.image} alt="" loading="lazy" />
+                  ) : (
+                    t.name
+                      .split(' ')
+                      .map((part) => part[0])
+                      .join('')
+                  )}
                 </span>
                 <span>
                   <span className="testimonial__name">{t.name}</span>

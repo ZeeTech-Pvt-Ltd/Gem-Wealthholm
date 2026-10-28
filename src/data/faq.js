@@ -50,3 +50,48 @@ export const faqItems = [
       'Opening an account is free. Details of any platform costs are shown clearly during the sign-up process, and you can review our terms before confirming anything.',
   },
 ]
+
+// Homepage FAQ set - Australia-focused questions for the landing
+// page (the /faqs page keeps the full faqItems list above).
+export const homeFaqItems = [
+  {
+    question: 'Is Gem Wealthholm available in Australia?',
+    answer:
+      'Yes. Gem Wealthholm is built for Australian users and works in every state and territory, with support on Australian business hours.',
+  },
+  {
+    question: 'What is the minimum deposit?',
+    answer:
+      'You can start from 347 A$. Details of accepted payment methods and processing times are shown inside the platform before you commit.',
+  },
+  {
+    question: 'Is there a Gem Wealthholm app?',
+    answer:
+      'No download is needed. Gem Wealthholm runs in your web browser on any phone, tablet or computer - wherever you are.',
+  },
+  {
+    question: 'Do I need trading experience?',
+    answer:
+      'No. Signals come with plain-language explanations, and the platform never pushes you to deposit more than you planned. Our team is happy to help you get started.',
+  },
+  {
+    question: 'Is Gem Wealthholm legit?',
+    answer:
+      'Gem Wealthholm is a real platform with secure sign-up, clear terms and a full risk disclosure. As with any trading, your capital is at risk.',
+  },
+  {
+    question: 'How does the AI choose trades?',
+    answer:
+      'It studies price history, trends and market volume to spot patterns. It then shows you trade ideas you can accept or ignore - every decision stays yours.',
+  },
+  {
+    question: 'Can I withdraw my money?',
+    answer:
+      'Yes. You can request a withdrawal from your dashboard at any time. There are no hidden charges, and you keep full control over your funds.',
+  },
+  {
+    question: 'How long does sign-up take?',
+    answer:
+      'Less than two minutes. Just fill in the form at the top of this page, and our team will get in touch to complete your account setup.',
+  },
+]

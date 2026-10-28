@@ -578,6 +578,231 @@
   margin-top: 30px;
 }
 
+/* Button + link-arrow row under the How It Works steps */
+.feature__cta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 34px;
+}
+
+.feature__cta-row .feature__cta {
+  margin-top: 0;
+}
+
+/* Trust strip ----------------------------------------------------------- */
+
+.trust-strip {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding: 30px 0;
+}
+
+.trust-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.trust-strip__item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.trust-strip__icon {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  background: var(--lime);
+  border-radius: var(--radius);
+  color: var(--ink);
+}
+
+.trust-strip__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.trust-strip__text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.trust-strip__text b {
+  display: block;
+  color: var(--ink);
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 991px) {
+  .trust-strip__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+}
+
+@media (max-width: 479px) {
+  .trust-strip__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Comparison table (AI vs manual trading) ------------------------------- */
+
+.compare {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+}
+
+.compare__row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+}
+
+.compare__row + .compare__row {
+  border-top: 1px solid var(--line);
+}
+
+.compare__label,
+.compare__cell {
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.compare__label {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.compare__cell {
+  color: var(--text);
+  border-left: 1px solid var(--line);
+}
+
+.compare__row--head {
+  background: var(--paper-deep);
+}
+
+.compare__row--head .compare__label,
+.compare__row--head .compare__cell {
+  padding: 13px 20px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.compare__cell--gem {
+  background: rgba(214, 250, 3, 0.14);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.compare__row--head .compare__cell--gem {
+  background: var(--ink);
+  color: var(--lime);
+}
+
+@media (max-width: 767px) {
+  .compare__row {
+    grid-template-columns: 1fr 1.1fr 1.1fr;
+  }
+
+  .compare__label,
+  .compare__cell {
+    padding: 12px 12px;
+    font-size: 13.5px;
+  }
+
+  .compare__row--head .compare__label,
+  .compare__row--head .compare__cell {
+    padding: 11px 12px;
+    font-size: 10.5px;
+  }
+}
+
+/* Centered muted note closing a section (e.g. Why Australians) */
+.section-note {
+  margin: 34px auto 0;
+  max-width: 640px;
+  text-align: center;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* Market group cards (homepage "One Platform, Four Markets") ------------- */
+
+.market-group-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.market-group-card__title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.market-group-card__text {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.market-group-card__symbols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.market-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 7px 10px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.market-chip svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Form microcopy below the submit button */
+.form-card__note {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: center;
+}
+
 /* Accordion - editorial list with hairlines -------------------------------------- */
 
 .accordion {
@@ -1078,6 +1303,7 @@
   width: 42px;
   height: 42px;
   border-radius: 50%;
+  overflow: hidden;
   background: var(--emerald);
   color: var(--lime);
   display: flex;
@@ -1086,6 +1312,12 @@
   font-family: var(--font-mono);
   font-weight: 700;
   font-size: 12.5px;
+}
+
+.testimonial__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .testimonial__name {
@@ -1160,6 +1392,21 @@
   gap: 18px;
   flex-wrap: wrap;
   align-items: center;
+}
+
+/* Centered variant (form-less bottom CTA) */
+.cta-banner--center {
+  text-align: center;
+}
+
+.cta-banner--center .cta-banner__title,
+.cta-banner--center .cta-banner__text {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-banner--center .cta-banner__actions {
+  justify-content: center;
 }
 
 /* Two-column variant with an embedded signup form */

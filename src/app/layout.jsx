@@ -25,11 +25,12 @@ const spaceMono = Space_Mono({
 
 export const metadata = {
   metadataBase: new URL('https://gemwealth-holm.com'),
-  title: { default: 'Gem Wealthholm - AI Market Insights & Smarter Investing' },
+  title: { default: 'Gem Wealthholm | AI Trading Platform in Australia' },
   description:
-    'Gem Wealthholm - AI-powered platform with real-time market insights, live trading signals, copy trading and 24/7 monitoring. Invest with clarity.',
+    'Gem Wealthholm is a browser-based AI trading platform for Australians. Trade crypto, forex, stocks and commodities with AI insights.',
   keywords: [
     'Gem Wealthholm',
+    'AI trading platform Australia',
     'AI market insights',
     'trading signals',
     'copy trading',
@@ -45,16 +46,16 @@ export const metadata = {
     siteName: 'Gem Wealthholm',
     locale: 'en_US',
     url: '/',
-    title: 'Gem Wealthholm - AI Market Insights & Smarter Investing',
+    title: 'Gem Wealthholm | AI Trading Platform in Australia',
     description:
-      'Gem Wealthholm - AI-powered platform with real-time market insights, live trading signals, copy trading and 24/7 monitoring. Invest with clarity.',
+      'Gem Wealthholm is a browser-based AI trading platform for Australians. Trade crypto, forex, stocks and commodities with AI insights.',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Gem Wealthholm - AI Market Insights & Smarter Investing',
+    title: 'Gem Wealthholm | AI Trading Platform in Australia',
     description:
-      'Gem Wealthholm - AI-powered platform with real-time market insights, live trading signals, copy trading and 24/7 monitoring.',
+      'Gem Wealthholm is a browser-based AI trading platform for Australians. Trade crypto, forex, stocks and commodities with AI insights.',
     images: ['/og-image.png'],
   },
 }

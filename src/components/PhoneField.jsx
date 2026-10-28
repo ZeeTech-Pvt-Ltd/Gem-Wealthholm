@@ -9,8 +9,8 @@ import { useEffect, useRef } from 'react'
  * fallback) so it never extends the critical request chain, and the
  * heavy validation utils.js is NOT loaded: the two helpers we need
  * (full number + basic validity) are computed from the country data
- * that ships inside the main library. Visitor country is geo-detected
- * via ipwho.is, starting in parallel with the page load.
+ * that ships inside the main library. Australia (+61) is the default
+ * country for this Australia-focused platform.
  */
 export default function PhoneField({ id, name, required, placeholder, autoComplete, apiRef, invalid = false, onInput }) {
   const inputRef = useRef(null)
@@ -20,13 +20,11 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
     if (!input) return
 
     let destroyed = false
-    let cancelled = false
     let itiInstance = null
     let started = false
     let loading = false
     let observer = null
     let removeInteractionFallback = null
-    let geoCode = null
     let api = null
 
     const fixAria = () => {
@@ -40,23 +38,6 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
       }
     }
 
-    // Geo lookup starts immediately, in parallel with the page load.
-    fetch('https://ipwho.is/', { signal: AbortSignal.timeout(5000) })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((data) => {
-        const code = data?.country_code?.toLowerCase()
-        if (!cancelled && code) {
-          geoCode = code
-          if (itiInstance) {
-            itiInstance.setCountry(code)
-            fixAria()
-          }
-        }
-      })
-      .catch(() => {
-        /* keep the default country */
-      })
-
     const loadIti = () => {
       if (loading || destroyed) return
       loading = true
@@ -68,8 +49,8 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
         const intlTelInput = mod.default || mod
         itiInstance = intlTelInput(input, {
           separateDialCode: true,
-          preferredCountries: ['gb', 'us'],
-          initialCountry: 'gb',
+          preferredCountries: ['au', 'gb', 'us'],
+          initialCountry: 'au',
           // Placeholder follows the selected country's format
           autoPlaceholder: 'aggressive',
         })
@@ -90,11 +71,6 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
             },
           }
           apiRef.current = api
-        }
-
-        if (geoCode) {
-          itiInstance.setCountry(geoCode)
-          fixAria()
         }
       })
     }
@@ -140,7 +116,6 @@ export default function PhoneField({ id, name, required, placeholder, autoComple
 
     return () => {
       destroyed = true
-      cancelled = true
       observer?.disconnect()
       removeInteractionFallback?.()
       if (apiRef?.current === api) apiRef.current = null

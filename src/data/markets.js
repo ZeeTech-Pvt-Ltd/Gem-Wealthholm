@@ -14,3 +14,28 @@ export const markets = [
   { symbol: 'SPX', name: 'S&P 500', group: 'Indices' },
   { symbol: 'NDX', name: 'Nasdaq 100', group: 'Indices' },
 ]
+
+// The four market groups shown on the homepage ("One Platform,
+// Four Markets"): group copy + the symbols that fall under it.
+export const marketGroups = [
+  {
+    name: 'Crypto',
+    text: 'Trade Bitcoin, Ethereum and other popular coins. The AI tracks fast price swings that are hard to follow by hand.',
+    symbols: ['BTC', 'ETH', 'SOL'],
+  },
+  {
+    name: 'Forex',
+    text: 'Follow major pairs like AUD/USD and EUR/USD. Signals are timed with the Sydney, London and New York sessions in mind.',
+    symbols: ['EUR/USD', 'GBP/USD'],
+  },
+  {
+    name: 'Stocks',
+    text: 'Keep an eye on big names from Australia and overseas, including ASX-listed companies. The AI flags trend changes and unusual volume.',
+    symbols: ['SPX', 'NDX'],
+  },
+  {
+    name: 'Commodities',
+    text: 'Gold, oil and other raw materials often move with world news. The AI helps you spot those shifts early.',
+    symbols: ['XAU/USD', 'WTI'],
+  },
+]

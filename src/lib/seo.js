@@ -24,12 +24,12 @@ export const BREADCRUMB_LABELS = {
 // primary keyword "Gem Wealthholm".
 export const SEO_ROUTES = {
   '/': {
-    title: 'Gem Wealthholm - AI Market Insights & Smarter Investing',
+    title: 'Gem Wealthholm | AI Trading Platform in Australia',
     description:
-      'Gem Wealthholm is an AI-powered platform with real-time market insights, live trading signals, copy trading and 24/7 monitoring. Invest with clarity.',
+      'Gem Wealthholm is a browser-based AI trading platform for Australians. Trade crypto, forex, stocks and commodities with AI insights.',
   },
   '/about-us': {
-    title: 'About Gem Wealthholm - AI Market Intelligence Platform',
+    title: 'About Gem Wealthholm - AI Market Intelligence',
     description:
       'Learn about Gem Wealthholm: the AI engine, market analysis tools, copy trading and the security-first approach behind the platform.',
   },
@@ -39,14 +39,14 @@ export const SEO_ROUTES = {
       'Get in touch with the Gem Wealthholm team. Questions about the platform, your account or partnerships - we are happy to help.',
   },
   '/features': {
-    title: 'Gem Wealthholm Features - AI Signals, Copy Trading & Security',
+    title: 'Gem Wealthholm Features - AI Signals & Security',
     description:
       'Explore the Gem Wealthholm feature set: AI market scanning, real-time signals, copy trading, 24/7 monitoring and encrypted, secure channels.',
   },
   '/how-it-works': {
     title: 'How Gem Wealthholm Works - Four Steps to Clarity',
     description:
-      'How Gem Wealthholm works: open an account, make a deposit from 347 A$, let the AI engine scan markets around the clock, and withdraw whenever you like.',
+      'How Gem Wealthholm works: open an account, deposit from 347 A$, and let the AI engine scan markets around the clock.',
   },
   '/reviews': {
     title: 'Gem Wealthholm Reviews - What Members Say',
@@ -79,7 +79,7 @@ export const SEO_ROUTES = {
       'The trading risks you should understand before using Gem Wealthholm: market volatility, limits of AI tools, liquidity and technology risks.',
   },
   '/cookie-policy': {
-    title: 'Gem Wealthholm - Cookie Policy & Tracking Technologies',
+    title: 'Gem Wealthholm - Cookie Policy & Tracking Tech',
     description:
       'How Gem Wealthholm uses cookies and similar technologies across the platform, and how you can manage or disable them.',
   },

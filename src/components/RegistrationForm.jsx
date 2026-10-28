@@ -13,7 +13,14 @@ const ENDPOINT = 'https://quantryxtech.com/homeMailAction.php'
  * intl-tel-input utils, and redirects to /thank-you on success.
  * `idPrefix` keeps input IDs unique across multiple instances.
  */
-export default function RegistrationForm({ idPrefix = 'reg', formId = 'join', submitLabel = 'Open an account' }) {
+export default function RegistrationForm({
+  idPrefix = 'reg',
+  formId = 'join',
+  submitLabel = 'Open an account',
+  title = 'Join now',
+  sub = 'Membership - free to open',
+  note = null,
+}) {
   const [error, setError] = useState(null)
   const [phoneError, setPhoneError] = useState(null)
   const [sending, setSending] = useState(false)
@@ -72,8 +79,8 @@ export default function RegistrationForm({ idPrefix = 'reg', formId = 'join', su
 
   return (
     <div className="form-card form-card--titled" id={formId}>
-      <div className="form-card__title">Join now</div>
-      <div className="form-card__sub">Membership - free to open</div>
+      <div className="form-card__title">{title}</div>
+      <div className="form-card__sub">{sub}</div>
 
       <form onSubmit={handleSubmit}>
         {/* honeypot - hidden from humans, catches bots */}
@@ -141,7 +148,7 @@ export default function RegistrationForm({ idPrefix = 'reg', formId = 'join', su
             name="phone"
             required
             autoComplete="tel"
-            placeholder="301 2345678"
+            placeholder="0412 345 678"
             apiRef={phoneApiRef}
             invalid={!!phoneError}
             onInput={() => phoneError && setPhoneError(null)}
@@ -176,6 +183,8 @@ export default function RegistrationForm({ idPrefix = 'reg', formId = 'join', su
         <button className="btn btn--lime btn--block" type="submit" disabled={sending}>
           {sending ? 'Sending…' : submitLabel}
         </button>
+
+        {note && <p className="form-card__note">{note}</p>}
       </form>
     </div>
   )
