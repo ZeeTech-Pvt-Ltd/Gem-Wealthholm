@@ -35,7 +35,7 @@ export default function Features() {
           FEATURES
         </span>
         <div className="container">
-          <p className="eyebrow">01 - Platform</p>
+          <p className="eyebrow">Platform</p>
           <h1 className="page-hero__title">
             Features built around <mark>clarity</mark>
           </h1>
@@ -48,14 +48,11 @@ export default function Features() {
 
       {/* Core features */}
       <section className="section section--rule">
-        <span className="ghost-num" aria-hidden="true">
-          02
-        </span>
         <div className="container">
           <Reveal>
             <div className="section-head">
               <div>
-                <p className="eyebrow">02 - Core features</p>
+                <p className="eyebrow">Core features</p>
                 <h2 className="title">
                   Everything you need, <mark>nothing you don’t</mark>
                 </h2>
@@ -87,7 +84,7 @@ export default function Features() {
 
       {/* Signals */}
       <FeatureSection
-        eyebrow="03 - Signals"
+        eyebrow="Signals"
         title={
           <>
             Signals you can <mark>act on</mark>
@@ -109,7 +106,7 @@ export default function Features() {
 
       {/* Copy trading */}
       <FeatureSection
-        eyebrow="04 - Copy trading"
+        eyebrow="Copy trading"
         title={
           <>
             Proven approaches, <mark>made approachable</mark>

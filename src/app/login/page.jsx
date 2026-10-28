@@ -21,7 +21,7 @@ export default function Login() {
       <div className="login-wrap">
       <div className="container">
         <div className="login-card">
-          <p className="eyebrow">04 - Access</p>
+          <p className="eyebrow">Access</p>
           <h1 className="login-card__title">
             Join <mark>Gem Wealthholm</mark>
           </h1>

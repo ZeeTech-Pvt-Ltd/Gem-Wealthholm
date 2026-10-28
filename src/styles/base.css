@@ -201,22 +201,6 @@ mark {
   margin-bottom: 0;
 }
 
-/* Ghost numeral behind a section head */
-.ghost-num {
-  position: absolute;
-  top: 18px;
-  right: 28px;
-  font-family: var(--font-display);
-  font-size: clamp(120px, 18vw, 240px);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.05em;
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(13, 18, 27, 0.07);
-  pointer-events: none;
-  user-select: none;
-}
-
 /* Buttons -------------------------------------------------------------- */
 
 .btn {
@@ -513,9 +497,5 @@ mark {
 
   .section-head {
     padding-top: 28px;
-  }
-
-  .ghost-num {
-    display: none;
   }
 }

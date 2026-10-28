@@ -18,7 +18,7 @@ export default function Guides() {
           GUIDES
         </span>
         <div className="container">
-          <p className="eyebrow">04 - Learn</p>
+          <p className="eyebrow">Learn</p>
           <h1 className="page-hero__title">
             Gem Wealthholm <mark>guides</mark>
           </h1>

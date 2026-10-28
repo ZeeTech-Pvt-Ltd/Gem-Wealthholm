@@ -100,7 +100,7 @@ export default function Terms() {
     <Main>
       <SeoScripts route="/terms-of-use" />
       <LegalDoc
-        eyebrow="05 - Legal"
+        eyebrow="Legal"
         title={
           <>
             Terms of <mark>Use</mark>

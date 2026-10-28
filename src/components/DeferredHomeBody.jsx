@@ -176,9 +176,6 @@ export default function DeferredHomeBody() {
 
       {/* 03 - Markets */}
       <section className="section section--rule">
-        <span className="ghost-num" aria-hidden="true">
-          03
-        </span>
         <div className="container">
           <Reveal>
             <div className="section-head">
@@ -356,9 +353,6 @@ export default function DeferredHomeBody() {
 
       {/* 08 - Voices */}
       <section className="section section--rule">
-        <span className="ghost-num" aria-hidden="true">
-          08
-        </span>
         <div className="container">
           <Reveal>
             <div className="section-head">

@@ -63,7 +63,7 @@ export default function Cookies() {
     <Main>
       <SeoScripts route="/cookie-policy" />
       <LegalDoc
-        eyebrow="08 - Legal"
+        eyebrow="Legal"
         title={
           <>
             Cookie <mark>Policy</mark>

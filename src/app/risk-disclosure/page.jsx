@@ -74,7 +74,7 @@ export default function RiskDisclosure() {
     <Main>
       <SeoScripts route="/risk-disclosure" />
       <LegalDoc
-        eyebrow="07 - Legal"
+        eyebrow="Legal"
         title={
           <>
             Risk <mark>Disclosure</mark>

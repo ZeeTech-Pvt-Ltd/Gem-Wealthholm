@@ -39,7 +39,7 @@ export default async function GuidePage({ params }) {
           GUIDE
         </span>
         <div className="container">
-          <p className="eyebrow">04 - Learn</p>
+          <p className="eyebrow">Learn</p>
           <h1 className="page-hero__title">{guide.title}</h1>
           <p className="page-hero__text">
             {guide.date} · {guide.readTime}

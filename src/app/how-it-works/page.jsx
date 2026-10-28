@@ -19,7 +19,7 @@ export default function HowItWorks() {
           HOW
         </span>
         <div className="container">
-          <p className="eyebrow">01 - Process</p>
+          <p className="eyebrow">Process</p>
           <h1 className="page-hero__title">
             From sign-up to first signal: how it <mark>works</mark>
           </h1>
@@ -32,14 +32,11 @@ export default function HowItWorks() {
 
       {/* The four steps */}
       <section className="section section--rule">
-        <span className="ghost-num" aria-hidden="true">
-          02
-        </span>
         <div className="container">
           <Reveal>
             <div className="section-head">
               <div>
-                <p className="eyebrow">02 - The four steps</p>
+                <p className="eyebrow">The four steps</p>
                 <h2 className="title">
                   Four steps to <mark>clarity</mark>
                 </h2>
@@ -68,7 +65,7 @@ export default function HowItWorks() {
 
       {/* From data to decision */}
       <FeatureSection
-        eyebrow="03 - The engine"
+        eyebrow="The engine"
         title={
           <>
             From data to <mark>decision</mark>
@@ -91,7 +88,7 @@ export default function HowItWorks() {
 
       {/* Around the clock */}
       <FeatureSection
-        eyebrow="04 - Around the clock"
+        eyebrow="Around the clock"
         title={
           <>
             What happens while <mark>you sleep</mark>

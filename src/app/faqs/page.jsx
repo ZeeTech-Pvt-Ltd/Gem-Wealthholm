@@ -18,7 +18,7 @@ export default function Faq() {
           FAQ
         </span>
         <div className="container">
-          <p className="eyebrow">03 - Support</p>
+          <p className="eyebrow">Support</p>
           <h1 className="page-hero__title">
             Gem Wealthholm <mark>FAQs</mark>
           </h1>

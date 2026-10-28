@@ -108,7 +108,7 @@ export default function Privacy() {
     <Main>
       <SeoScripts route="/privacy-policy" />
       <LegalDoc
-        eyebrow="06 - Legal"
+        eyebrow="Legal"
         title={
           <>
             Privacy <mark>Notice</mark>

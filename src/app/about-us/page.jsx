@@ -20,7 +20,7 @@ export default function About() {
           ABOUT
         </span>
         <div className="container">
-          <p className="eyebrow">01 - Company</p>
+          <p className="eyebrow">Company</p>
           <h1 className="page-hero__title">
             About <mark>Gem Wealthholm</mark>
           </h1>
@@ -34,7 +34,7 @@ export default function About() {
 
       <FeatureSection
         paper
-        eyebrow="01 - Mission"
+        eyebrow="Mission"
         title={
           <>
             Smarter investing, powered by <mark>technology</mark>
@@ -56,14 +56,11 @@ export default function About() {
 
       {/* Values */}
       <section className="section section--rule">
-        <span className="ghost-num" aria-hidden="true">
-          02
-        </span>
         <div className="container">
           <Reveal>
             <div className="section-head">
               <div>
-                <p className="eyebrow">02 - Values</p>
+                <p className="eyebrow">Values</p>
                 <h2 className="title">
                   What we <mark>stand for</mark>
                 </h2>
@@ -94,7 +91,7 @@ export default function About() {
 
       {/* Protection */}
       <FeatureSection
-        eyebrow="03 - Protection"
+        eyebrow="Protection"
         title={
           <>
             Control and protection, <mark>by design</mark>

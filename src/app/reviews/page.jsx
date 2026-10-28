@@ -18,7 +18,7 @@ export default function Reviews() {
           REVIEWS
         </span>
         <div className="container">
-          <p className="eyebrow">01 - Voices</p>
+          <p className="eyebrow">Voices</p>
           <h1 className="page-hero__title">
             What members say about <mark>Gem Wealthholm</mark>
           </h1>
@@ -30,14 +30,11 @@ export default function Reviews() {
 
       {/* Member reviews */}
       <section className="section section--rule">
-        <span className="ghost-num" aria-hidden="true">
-          02
-        </span>
         <div className="container">
           <Reveal>
             <div className="section-head">
               <div>
-                <p className="eyebrow">02 - Member reviews</p>
+                <p className="eyebrow">Member reviews</p>
                 <h2 className="title">
                   Real feedback, <mark>real words</mark>
                 </h2>
@@ -56,7 +53,7 @@ export default function Reviews() {
 
       {/* What members value */}
       <FeatureSection
-        eyebrow="03 - What members value"
+        eyebrow="What members value"
         title={
           <>
             The themes that <mark>repeat</mark>
